@@ -1,0 +1,15 @@
+
+
+.cartClass  {
+  
+ @apply bg-[linear-gradient(to_bottom,rgb(var(--type-color)/0.14),rgb(var(--type-color-2)/0.14))] ;
+ @apply border border-[rgb(var(--type-color)/0.55)]
+  
+  
+}
+/*
+ bg-[linear-gradient(to_bottom,rgb(var(--type-color)/0.08),rgb(var(--type-color-2)/0.08))]
+
+
+bg-[color-mix(in_srgb,rgb(var(--type-color))_60%,white)]
+*/

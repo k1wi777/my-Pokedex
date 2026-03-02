@@ -1,65 +1,79 @@
+import { fetchInitialDetailed, fetchPokeballs, fetchPokemons, getDataPokeball, translateLabel } from "@/services/fetches";
+import CartPokemon from "@/app/components/CartPokemon.jsx";
+import { randomNumber } from "@/app/utils/random";
+import { NUMBER_POKEMON } from "@/app/utils/dataFetch";
+import Carousel from "@/app/components/Carousel";
+import Link from "next/link";
+import CartPokeball from '@/app/components/CartPokeball'
+import ObserverCart from "./components/ObserverCart";
 import Image from "next/image";
 
-export default function Home() {
+const number = randomNumber(NUMBER_POKEMON - 20);
+
+
+export default async function HomePage() {
+  const { count, next, previous, results } = await fetchPokemons(number);
+  const initialDetailed = await fetchInitialDetailed(results)
+  const listPokeballs = await fetchPokeballs();
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+
+      <Carousel results={results}>
+        {initialDetailed.map((pokemon) => {
+          return (
+            <Link href={`/pokemons/${pokemon.name}`} key={pokemon.name} className="w-full h-full">
+              <CartPokemon pkmn={pokemon} />
+            </Link>
+          )
+        })}
+      </Carousel>
+      <div className="w-full flex flex-col md:flex-row items-center justify-center relative overflow-hidden py-4">
+        
+
+          <div className="z-10  h-full  px-8  flex justify-between items-center ">
+            <ObserverCart>
+              <div className="text-xl sm:text-3xl md:text-4xl lg:text-5xl transition-all duration-300 flex justify-between">
+
+            <section className="w-[70%]">
+              <h3 className="capitalize font-black opacity-40">pokémon</h3>
+              <p className="text-[0.5em] pt-4 sm:pt-6  md:pt-8 lg:pt-10 font-bold opacity-70 leading-4 sm:leading-6 md:leading-8 lg:leading-10">Pokémon es una franquicia que originalmente comenzó como un videojuego RPG, pero debido a su popularidad ha logrado expandirse a otros medios de entretenimiento como series de televisión, películas, juegos de cartas, ropa..., convirtiéndose en una marca que es reconocida en el mercado mundial.</p>
+            </section>
+            <Image src="/farmer-aura.jpg" alt="pokemon photo" width={290} height={340} className="rounded-lg  drop-shadow-[0_0_7px_rgba(255,255,255,0.35)] opacity-70 w-25 sm:w-[20%] ml-1 my-auto" />
+              </div>
+            </ObserverCart>
+
+          </div>
+        
+        <Image src={'/banner4.jpg'} alt="text pokeballs" width={400} height={400} className=" mx-auto  opacity-70 rotate-270 absolute scale-112 scale-y-145  z-0" />
+      </div>
+      <Image src={'/Pokeballs-tittle.png'} alt="text pokeballs" width={900} height={900} className="w-[70%] sm:w-[50%] md:w-[30%]  mx-auto drop-shadow-[0_0_7px_rgba(0,255,255,0.35)]" />
+
+      <div className="px-8  space-y-15">
+        {listPokeballs.map((category) => {
+          return (
+            <>
+              <h2 className="text-4xl font-black tracking-wider
+              text-yellow-400
+                drop-shadow-lg
+                border-b border-yellow-500/40
+                pb-2
+                mb-4">{category.name.replace('-', " ")}
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 items-center">
+                {category.items.map(async (item) => {
+
+                  return (
+                    <ObserverCart key={item.name}>
+                      <CartPokeball item={item} lang={'es'} />
+
+                    </ObserverCart>
+                  )
+                })}
+              </div>
+            </>
+          )
+        })}
+      </div>
+    </>
   );
 }

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Pokédex | k1wi",
     description:
       "Explora información detallada de Pokémon, tipos y evoluciones.",
-    images: ["/preview.png"],
+    images: ["/preview2.png"],
   },
 };
 

@@ -9,7 +9,8 @@ import Search from "@/app/components/Search";
 
 
 export async function generateMetadata({ params }) {
-  const name = params.name;
+  const param = await params;
+  const name = param.name;
   const pkmn = await fetchInfoPokemon(name, "es");
 
   if (!pkmn) {

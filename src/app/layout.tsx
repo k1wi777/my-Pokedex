@@ -10,6 +10,8 @@ export const nunito = Nunito({
   weight: ["400", "600", "700", "800"],
 });
 
+// metadata para visualizacion
+
 export const metadata: Metadata = {
   title: {
     default: "Pokédex | K1wi",
@@ -27,6 +29,8 @@ export const metadata: Metadata = {
     images: ["/preview.png"],
   },
 };
+
+
 
 export default function RootLayout({
   children,

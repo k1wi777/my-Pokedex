@@ -9,7 +9,7 @@ export default function NavBar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const linkStyle = (path: string) =>
+  const linkStyle = (path) =>
     `
     block px-6 py-3 rounded-2xl font-semibold
     transition-all duration-300

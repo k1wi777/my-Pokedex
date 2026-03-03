@@ -7,6 +7,25 @@ import TypeEffectCard from './TypeEffectCard/TypeEffectCard'
 import { notFound } from "next/navigation";
 import Search from "@/app/components/Search";
 
+import { fetchInfoPokemon } from "@/services/fetches";
+
+export async function generateMetadata({ params }) {
+  const name = params.name;
+  const pkmn = await fetchInfoPokemon(name, "es");
+
+  if (!pkmn) {
+    return {
+      title: "Pokémon no encontrado",
+    };
+  }
+
+  return {
+    title: pkmn.name,
+    icons: {
+      icon: pkmn.sprites.front_default, 
+    },
+  };
+}
 
 
 

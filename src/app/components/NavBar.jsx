@@ -28,7 +28,7 @@ export default function NavBar() {
         <Image
           width={200}
           height={80}
-          src="/pokedex-title.png"
+          src="/Pokedex-title.png"
           alt="pokedex title"
           className="w-32 md:w-40 drop-shadow-[0_0_7px_rgba(0,255,255,0.35)]"
         />
@@ -50,7 +50,7 @@ export default function NavBar() {
 
         {/* Desktop GitHub */}
         <a
-          href="https://google.com"
+          href="https://github.com/k1wi777"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:flex"

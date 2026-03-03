@@ -8,7 +8,7 @@ import ExperienceBadge from "./components/ExperienceBadge";
 import GrowthRateBadge from "./components/GrowthRateBadge";
 import CaptureRateBar from "./components/CaptureRateBar";
 import GenerationBadge from "./components/GenerationBadge";
-import PokemonFlipImage from "./components/PokemonFlipImage";
+import PokemonFlipImage from "./components/PokemonFlipImage.jsx";
 
 export default async function PrincipalCart({ pkmn }) {
 

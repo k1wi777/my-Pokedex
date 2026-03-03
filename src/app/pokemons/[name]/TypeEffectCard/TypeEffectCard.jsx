@@ -15,7 +15,7 @@ export default function TypeEffectCard({ defensive, offensive }) {
       </h3>
 
       {/* Content */}
-      <div className="relative z-10 text-[0.8em] flex flex-col md:flex-row gap-3 h-full">
+      <div className="relative z-10 text-[0.8em] flex flex-col xl:flex-row gap-3 h-full">
         {/* DEFENSIVE */}
         <div
           className="
@@ -25,7 +25,7 @@ export default function TypeEffectCard({ defensive, offensive }) {
   border border-red-400/20
   backdrop-blur-md
   py-2 px-3
-  shadow-[0_0_30px_rgba(255,0,0,0.08)] md:w-1/2"
+  shadow-[0_0_30px_rgba(255,0,0,0.08)] xl:w-1/2"
         >
           <h4
             className=" font-bold
@@ -36,7 +36,7 @@ export default function TypeEffectCard({ defensive, offensive }) {
           >
             🛡 Defensive
           </h4>
-          <div className="px-3 ">
+          <div className="px-3">
             <TypeRow title="Weak To" types={defensive.weaknesses} />
             <TypeRow title="Resistant To" types={defensive.resistances} />
             <TypeRow title="Immune To" types={defensive.immunities} />
@@ -51,7 +51,7 @@ bg-gradient-to-br from-green-500/10 via-green-500/5 to-transparent
 border border-green-400/20
 backdrop-blur-md
 py-2 px-3
-shadow-[0_0_30px_rgba(0,255,120,0.08)] md:w-1/2"
+shadow-[0_0_30px_rgba(0,255,120,0.08)] xl:w-1/2"
         >
           <h4
             className="font-bold

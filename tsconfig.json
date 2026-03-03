@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "src/app/components/PokemonHero.jsx"  ],
+, "src/app/components/PokemonHero.jsx", "src/app/components/CartPokeball.jsx", "src/app/pokemons/[name]/PrincipalCart/components/AbilityPokemon.jsx", "src/app/pokemons/[name]/PrincipalCart/components/PokemonFlipImage.jsx", "src/app/pokemons/[name]/PrincipalCart/components/TipePokemon.jsx", "src/app/pokemons/[name]/PrincipalCart/PrincipalCart.jsx", "src/app/pokemons/[name]/page.jsx", "src/app/page.jsx"  ],
   "exclude": ["node_modules"]
 }

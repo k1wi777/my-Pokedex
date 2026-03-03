@@ -1,6 +1,6 @@
 import { getDataPokeball } from "@/services/fetches";
 
-function getCategoryStyle(name: string) {
+function getCategoryStyle(name) {
   switch (name) {
     case "standard-balls":
       return "from-red-500/20 via-red-400/10 to-transparent border-red-400/30";
@@ -13,7 +13,11 @@ function getCategoryStyle(name: string) {
   }
 }
 
-export default async function CartPokeball({ item, lang }) {
+
+
+export default async function CartPokeball(
+  { item, lang }
+) {
     const pokeball = await getDataPokeball(item.url, lang);
 
     return (

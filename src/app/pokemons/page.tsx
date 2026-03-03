@@ -1,4 +1,4 @@
-import { fetchInfoPokemon, fetchInitialDetailed, fetchPokemons } from "@/services/fetches";
+import {  fetchInitialDetailed, fetchPokemons } from "@/services/fetches";
 
 import Search from '@/app/components/Search.jsx'
 import "./global.css";

@@ -86,7 +86,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             
-            {/* 🔥 AQUÍ VA TU FIRMA */}
+            {/*  AQUÍ VA TU FIRMA */}
             <div className="
               w-24 h-24
               rounded-full

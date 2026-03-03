@@ -11,7 +11,7 @@ export default function TypeRow({ title, types }) {
         {types.map(({ type, value }) => (
           <span
             key={type}
-            className={`relative w-20 text-center
+            className={`relative w-20 md:w-18 text-center
               px-2 py-1 rounded-xl text-[0.6em] 
               backdrop-blur-md font-black
               transition-all duration-300 border-2 

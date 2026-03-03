@@ -1,4 +1,4 @@
-import Search from "@/app/components/Search";
+
 import type { Metadata } from "next";
 
 

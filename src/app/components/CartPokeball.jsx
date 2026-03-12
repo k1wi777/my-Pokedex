@@ -13,16 +13,12 @@ function getCategoryStyle(name) {
   }
 }
 
+export default async function CartPokeball({ item, lang }) {
+  const pokeball = await getDataPokeball(item.url, lang);
 
-
-export default async function CartPokeball(
-  { item, lang }
-) {
-    const pokeball = await getDataPokeball(item.url, lang);
-
-    return (
-        <div
-            className={`
+  return (
+    <div
+      className={`
                        relative
                        group
                        p-3 sm:p-4 md:p-5
@@ -34,25 +30,25 @@ export default async function CartPokeball(
                        flex flex-col
                        items-center
                        justify-between
-                       transition-all duration-300
+                       transition-all duration-400
                        md:hover:-translate-y-2
+
                        
                      `}
-            
-        >
-            <h3
-                className="
+    >
+      <h3
+        className="
                            text-xs sm:text-sm md:text-base
   font-bold uppercase tracking-wider
   text-white/90 mt-3
                         "
-            >
-                {pokeball.name}
-            </h3>
-            <div className="relative flex items-center justify-center w-full mt-3 ">
-                {/* sombra lateral izquierda */}
-                <div
-                    className="
+      >
+        {pokeball.name}
+      </h3>
+      <div className="relative flex items-center justify-center w-full mt-3 ">
+        {/* sombra lateral izquierda */}
+        <div
+          className="
                               absolute
                               left-[30%]
                               bottom-[17%]
@@ -66,28 +62,28 @@ export default async function CartPokeball(
                               rounded-full
                               z-0
                             "
-                />
-                {/* ESTRELLAS */}
-                <div className="absolute top-[-4%] flex gap-1 pointer-events-none">
-                    <span className="star group-hover:animate-[star-1_3.5s_ease-out_2s_forwards]" />
-                    <span className="star group-hover:animate-[star-2_3.5s_ease-out_2s_forwards]" />
-                    <span className="star group-hover:animate-[star-3_3.5s_ease-out_2s_forwards]" />
-                </div>
+        />
+        {/* ESTRELLAS */}
+        <div className="absolute top-[-4%] flex gap-1 pointer-events-none">
+          <span className="star group-hover:animate-[star-1_3.5s_ease-out_2s_forwards]" />
+          <span className="star group-hover:animate-[star-2_3.5s_ease-out_2s_forwards]" />
+          <span className="star group-hover:animate-[star-3_3.5s_ease-out_2s_forwards]" />
+        </div>
 
-                <img
-                    src={pokeball.sprites.default}
-                    alt={pokeball.name}
-                    className="
+        <img
+          src={pokeball.sprites.default}
+          alt={pokeball.name}
+          className="
                                 w-[50%] sm:w-[45%] md:w-[38%]
   relative
   transition-transform
   capture-glow
   md:group-hover:animate-[capture-shake_2s_ease-in-out_forwards]
   z-10"
-                />
-            </div>
-            <p
-                className="
+        />
+      </div>
+      <p
+        className="
                           
   text-[10px] sm:text-xs md:text-sm
   text-white/60 text-center mt-2
@@ -95,9 +91,12 @@ export default async function CartPokeball(
   group-hover:scale-110
   transition-transform duration-200
                         "
-            >
-                {pokeball.description}
-            </p>
-        </div>
-    );
+      >
+        <p className="flex group-hover:hidden transition-all duration-700 ">{pokeball.description}</p>
+        <span className="text-[.7em] hidden group-hover:flex transition-all duration-700">
+          {pokeball.effect}
+        </span>
+      </p>
+    </div>
+  );
 }

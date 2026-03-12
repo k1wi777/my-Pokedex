@@ -1,3 +1,5 @@
+
+
 //fetch para obtener una lista de pokeemons
 export async function fetchPokemons(offset = 0, limit = 20) {
   try {
@@ -97,12 +99,29 @@ async function getInfoCategories(json) {
     }),
   );
 }
+
+export async function abilitiesDetails({url}) {
+  let ability = {}
+  try {
+    const res =await  fetch(url)
+    const json = await res.json()
+    const description = translateLabel(json["flavor_text_entries"],'es',1,0)
+    const name = translateLabel(json.names,'es')
+    ability={description,name}
+  } catch (error) {
+    console.error('ha habido un error ',error)
+  }
+  finally{
+    return ability
+  }
+}
 export async function getDataPokeball(url, lang = 'en') {
   const res = await fetch(url);
   const pokeball = await res.json();
   const name = translateLabel(pokeball.names,lang);
   const description = translateLabel(pokeball.flavor_text_entries, lang);
-  return {...pokeball, name,description}
+  const effect= translateLabel(pokeball.effect_entries,lang,1,0)
+  return {...pokeball, name,description,effect}
 }
 
 export async function fetchSpeciesData(pkmn) {
@@ -254,16 +273,16 @@ async function getEvolutions(species) {
   return { tree, hasBranching };
 }
 
-export function translateLabel(languages, lang = "en") {
+export function translateLabel(languages, lang = "en", indexLanguage =0,indexText=1) {
   let translate = "";
   let english = "";
-  const entry = languages.find((e) => Object.values(e)[0].name === lang);
+  const entry = languages.find((e) => Object.values(e)[indexLanguage].name === lang);
 
-  const defaultLabel = languages.find((e) => Object.values(e)[0].name === "en");
+  const defaultLabel = languages.find((e) => Object.values(e)[indexLanguage].name === "en");
 
   return entry
-    ? Object.values(entry)[1]?.replace(/\f/g, " ")
+    ? Object.values(entry)[indexText]?.replace(/\f/g, " ")
     : defaultLabel
-      ? Object.values(defaultLabel)[1]
+      ? Object.values(defaultLabel)[indexText]
       : "No name available.";
 }

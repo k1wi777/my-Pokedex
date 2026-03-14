@@ -3,6 +3,7 @@ import Image from "next/image";
 import TipePokemon from "./components/TipePokemon";
 import AbilityPokemon from "./components/AbilityPokemon";
 import StatPokemon from "./components/StatPokemon";
+import StatsSection from "./components/StatsSection";
 import GenderRatio from "./components/GenderRatio";
 import ExperienceBadge from "./components/ExperienceBadge";
 import GrowthRateBadge from "./components/GrowthRateBadge";
@@ -93,23 +94,8 @@ export default async function PrincipalCart({ pkmn }) {
               </section>
 
               {/* stats */}
-              <section
-                className="
-                                     relative
-                                     w-full
-                                     bg-gradient-to-br from-white/10 via-white/5 to-transparent
-                                     backdrop-blur-xl
-                                     border border-white/20
-                                     shadow-[0_0_25px_rgba(255,255,255,0.05)]
-                                     rounded-xl
-                                     py-[3px] md:py-2
-                                    pr-[10%] text-[0.3em] 
-                                "
-              >
-                {pkmn.stats.map((stat) => (
-                  <StatPokemon stat={stat} key={stat.stat.name} />
-                ))}
-              </section>
+              <StatsSection stats={pkmn.stats}/>
+              
 
               {/* growth rate */}
               <section

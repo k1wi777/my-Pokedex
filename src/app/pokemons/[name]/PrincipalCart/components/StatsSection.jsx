@@ -5,7 +5,6 @@ import StatPokemon from "./StatPokemon";
 function handleLevelChange(value) {
   const num = Number(value)
 
-  if (Number.isNaN(num)) return
 
   const clamped = Math.min(100, Math.max(0, num))
 

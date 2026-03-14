@@ -17,6 +17,7 @@ body {
 /* progreso (lado izquierdo) */
 .slider::-webkit-slider-runnable-track {
   height: 6px;
+  background: rgb(16,185,129);
   border-radius: 999px;
 }
 

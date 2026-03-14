@@ -5,7 +5,7 @@ import StatPokemon from "./StatPokemon";
 export default function StatsSection({stats}) {
     const [level, setLevel] = useState(0);
   return (
-    <>
+    <div className="space-y-1">
     <section
       className="
                                      relative
@@ -14,12 +14,12 @@ export default function StatsSection({stats}) {
                                      backdrop-blur-xl
                                      border border-white/20
                                      shadow-[0_0_25px_rgba(255,255,255,0.05)]
-                                     rounded-xl
-                                     py-[3px] md:py-2
+                                     rounded-lg
+                                     py-[2px] md:py-2
                                     pr-[10%] text-[0.3em] 
                                 "
     >
-      <div className="flex items-center gap-2  mb-1  text-[0.95em]">
+      <div className="flex items-center gap-2 h-2  mb-1  text-[0.95em] w-[95%]">
         <span className="opacity-70 pl-px">Nivel</span>
 
         <input
@@ -28,7 +28,7 @@ export default function StatsSection({stats}) {
           max="100"
           value={level}
           onChange={(e) => setLevel(Number(e.target.value))}
-          className="flex-1 border-emerald-400/40 shadow-[0_0_5px_rgba(16,185,129,0.4)] hidden md:flex  cursor-pointer"
+          className="flex-1 h-2 border-emerald-400/40 shadow-[0_0_5px_rgba(16,185,129,0.4)] hidden md:flex  cursor-pointer"
         />
 
         <input
@@ -50,6 +50,6 @@ export default function StatsSection({stats}) {
       <span className="text-[0.22em] text-center opacity-50">
        {level ===0  ? 'Base stats':' Stats estimadas (IV perfectos, sin EV)'}
       </span>
-    </>
+    </div>
   );
 }

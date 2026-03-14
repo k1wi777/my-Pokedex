@@ -35,8 +35,7 @@ export default function StatPokemon({ stat, level }) {
 
   return (
     <div
-      key={stat.stat.name}
-      className="mb- flex flex-col border-l-3 border-white/50 pl-1 pb-1"
+      className=" flex flex-col border-l-3 border-white/50 pl-1 pb-[2px]   lg:pb-1"
     >
       <div className="flex justify-between  font-medium w-full">
         <span className="capitalize w-[30%] opacity-65 mr-2">

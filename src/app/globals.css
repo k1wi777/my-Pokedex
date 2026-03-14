@@ -7,6 +7,31 @@ body {
 
 }
 
+.slider {
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.25);
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 999px;
+  background: rgb(16,185,129);
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(16,185,129,0.6);
+}
+
+.slider::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 999px;
+  background: rgb(16,185,129);
+  cursor: pointer;
+}
+
 @keyframes fadeIn{
   from{
     opacity: 0;

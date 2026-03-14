@@ -20,6 +20,7 @@ export default function StatPokemon({ stat, level }) {
 
     return Math.floor(value * nature);
   }
+  
  
 
   const value =

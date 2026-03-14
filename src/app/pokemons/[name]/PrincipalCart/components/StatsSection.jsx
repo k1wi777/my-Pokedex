@@ -1,13 +1,13 @@
-'use client'
+"use client";
 import { useState } from "react";
 import StatPokemon from "./StatPokemon";
 
-export default function StatsSection({stats}) {
-    const [level, setLevel] = useState(0);
+export default function StatsSection({ stats }) {
+  const [level, setLevel] = useState(0);
   return (
-    <div className="space-y-1">
-    <section
-      className="
+    <div className="flex flex-col gap-1">
+      <section
+        className="
                                      relative
                                      w-full
                                      bg-gradient-to-br from-white/10 via-white/5 to-transparent
@@ -18,37 +18,35 @@ export default function StatsSection({stats}) {
                                      py-[2px] md:py-2
                                     pr-[10%] text-[0.3em] 
                                 "
-    >
-      <div className="flex items-center gap-2 h-2  mb-1  text-[0.95em] w-[95%]">
-        <span className="opacity-70 pl-px">Nivel</span>
+      >
+        <div className="flex items-center gap-2 h-2  mb-1  text-[0.95em] w-[95%]">
+          <span className="opacity-70 pl-px">Nivel</span>
 
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value={level}
-          onChange={(e) => setLevel(Number(e.target.value))}
-          className="flex-1 h-2 border-emerald-400/40 shadow-[0_0_5px_rgba(16,185,129,0.4)] hidden md:flex  cursor-pointer"
-        />
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={level}
+            onChange={(e) => setLevel(Number(e.target.value))}
+            className="flex-1 h-2 border-emerald-300/40 shadow-[0_0_5px_rgba(16,185,129,0.4)] hidden md:flex md:w-[60%]  cursor-pointer"
+          />
 
-        <input
-          type="number"
-          min="0"
-          max="100"
-          value={level}
-          onChange={(e) => setLevel(Number(e.target.value))}
-          className="w-12 text-center bg-black/20 border border-white/20 rounded"
-        />
-      </div>
+          <input
+            type="number"
+            min="0"
+            max="100"
+            value={level}
+            onChange={(e) => setLevel(Number(e.target.value))}
+            className="px-2.5 md: px-1 text-center bg-black/20 border border-white/20 rounded"
+          />
+        </div>
 
-      
-
-      {stats.map((stat) => (
-        <StatPokemon stat={stat}  level={level} key={stat.stat.name} />
-      ))}
-    </section>
+        {stats.map((stat) => (
+          <StatPokemon stat={stat} level={level} key={stat.stat.name} />
+        ))}
+      </section>
       <span className="text-[0.22em] text-center opacity-50">
-       {level ===0  ? 'Base stats':' Stats estimadas (IV perfectos, sin EV)'}
+        {level === 0 ? "Base stats" : " Stats estimadas (IV perfectos, sin EV)"}
       </span>
     </div>
   );

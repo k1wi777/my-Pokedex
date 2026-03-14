@@ -18,7 +18,7 @@ export default function StatsSection({stats}) {
                                     pr-[10%] text-[0.3em] 
                                 "
     >
-      <div className="flex items-center gap-1 lg:gap-2 mb-1 lg:mb-3 text-[0.35em]">
+      <div className="flex items-center gap-1 lg:gap-2 mb-1 lg:mb-3 text-[0.95em]">
         <span className="opacity-70">Nivel</span>
 
         <input
@@ -27,7 +27,7 @@ export default function StatsSection({stats}) {
           max="100"
           value={level}
           onChange={(e) => setLevel(Number(e.target.value))}
-          className="flex-1 accent-purple-400 cursor-pointer"
+          className="flex-1 border-emerald-400/50 shadow-[0_0_5px_rgba(16,185,129,0.4)] w-1/2 md:w-[70%]  cursor-pointer"
         />
 
         <input
@@ -45,7 +45,7 @@ export default function StatsSection({stats}) {
       {stats.map((stat) => (
         <StatPokemon stat={stat}  level={level} key={stat.stat.name} />
       ))}
-      <span className="text-[0.25em] opacity-50">
+      <span className="text-[0.85em] opacity-50">
        {level ===0  ? 'Base stats':' Stats estimadas (IV perfectos, sin EV)'}
       </span>
     </section>

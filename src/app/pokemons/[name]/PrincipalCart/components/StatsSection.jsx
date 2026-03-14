@@ -2,18 +2,17 @@
 import { useState } from "react";
 import StatPokemon from "./StatPokemon";
 
-function handleLevelChange(value) {
-  const num = Number(value)
-
-
-  const clamped = Math.min(100, Math.max(0, num))
-
-  setLevel(clamped)
-}
-
-
 export default function StatsSection({ stats }) {
   const [level, setLevel] = useState(0);
+  function handleLevelChange(value) {
+    const num = Number(value);
+
+    if (Number.isNaN(num)) return;
+
+    const clamped = Math.min(100, Math.max(0, num));
+
+    setLevel(clamped);
+  }
   return (
     <div className="flex flex-col gap-1">
       <section

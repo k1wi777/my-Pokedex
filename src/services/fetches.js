@@ -284,5 +284,5 @@ export function translateLabel(languages, lang = "en", indexLanguage =0,indexTex
     ? Object.values(entry)[indexText]?.replace(/\f/g, " ")
     : defaultLabel
       ? Object.values(defaultLabel)[indexText]
-      : "No name available.";
+      : "No text available.";
 }

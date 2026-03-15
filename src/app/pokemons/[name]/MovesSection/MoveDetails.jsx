@@ -1,5 +1,6 @@
 "use client";
 
+import { translateLabel } from "@/services/fetches";
 import { useEffect, useState } from "react";
 
 export default function MoveDetails({ move }) {
@@ -45,9 +46,7 @@ export default function MoveDetails({ move }) {
 
   const type = data.type.name;
 
-  const description =
-    data.effect_entries.find((e) => e.language.name === "en")?.effect ??
-    "No description";
+  const description = translateLabel(data.flavor_text_entries, "es", 1, 0);
 
   const effectChance = data.effect_chance ?? null;
 
@@ -64,6 +63,7 @@ export default function MoveDetails({ move }) {
       ? `${ailment}${ailmentChance ? ` ${ailmentChance}%` : ""}`
       : null;
 
+  const name = translateLabel(data.names, "es");
   return (
     <div
       className={`
@@ -92,7 +92,7 @@ export default function MoveDetails({ move }) {
           )}
 
           <h3 className="capitalize text-xl font-semibold">
-            {data.name.replace("-", " ")}
+            {name.replace("-", " ")}
           </h3>
 
           <div className="ml-auto flex items-center gap-2 px-2 py-1 bg-[#363636] border border-white/20 rounded">

@@ -95,6 +95,16 @@ export default async function InfoPokemonPage({ params }) {
         />
       </section>
        <section className="col-span-2">
+        <h3
+        className="  font-black tracking-wider
+  text-yellow-400
+  drop-shadow-lg
+  border-b border-yellow-500/40
+  pb-2
+  mb-2 text-center"
+      >
+        moves
+      </h3>
         <MovesSection moves={pkmn.moves}/>
        </section>
     </div>

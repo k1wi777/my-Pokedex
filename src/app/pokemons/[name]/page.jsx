@@ -101,7 +101,7 @@ export default async function InfoPokemonPage({ params }) {
   drop-shadow-lg
   border-b border-yellow-500/40
   pb-2
-  mb-2 text-center"
+  mb-2 text-center text-xl  lg:text-2xl"
       >
         moves
       </h3>

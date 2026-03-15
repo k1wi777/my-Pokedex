@@ -60,7 +60,7 @@ export default function MoveDetails({ move }) {
     : null;
   const ailmentBadge =
     ailment !== "none"
-      ? `${ailment}${ailmentChance ? ` ${ailmentChance}%` : ""}`
+      ? `${ailment}`
       : null;
 
   const name = translateLabel(data.names, "es");

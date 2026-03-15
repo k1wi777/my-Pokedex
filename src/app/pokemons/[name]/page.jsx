@@ -6,6 +6,7 @@ import PrincipalCart from "./PrincipalCart/PrincipalCart";
 import TypeEffectCard from './TypeEffectCard/TypeEffectCard'
 import { notFound } from "next/navigation";
 import Search from "@/app/components/Search";
+import MovesSection from './MovesSection/MovesSection'
 
 
 export async function generateMetadata({ params }) {
@@ -93,6 +94,9 @@ export default async function InfoPokemonPage({ params }) {
           name={name}
         />
       </section>
+       <section className="col-span-2">
+        <MovesSection moves={pkmn.moves}/>
+       </section>
     </div>
   );
 }

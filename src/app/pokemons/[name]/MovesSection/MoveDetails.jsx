@@ -50,105 +50,129 @@ export default function MoveDetails({ move }) {
   const critRate = data.meta?.crit_rate ?? 0;
 
   return (
+  <div
+    className={`
+      flex-1
+      flex
+      rounded-xl
+      overflow-hidden
+      border border-white/20
+      type-${type}
+    `}
+    style={{
+      background:
+        "linear-gradient(135deg, rgb(var(--type-color) / 0.35), rgb(var(--type-color-2) / 0.15))",
+      color: "rgb(var(--type-text))",
+      boxShadow: "0 0 15px rgb(var(--type-color) / 0.35)",
+    }}
+  >
+
+    {/* barra lateral del tipo */}
 
     <div
-      className={`
-        flex-1
-        flex
-        rounded-xl
-        overflow-hidden
-        border border-white/20
-        type-${type}
-      `}
-      style={{
-        background:
-          "linear-gradient(135deg, rgb(var(--type-color) / 0.35), rgb(var(--type-color-2) / 0.15))",
-        color: "rgb(var(--type-text))",
-        boxShadow: "0 0 15px rgb(var(--type-color) / 0.35)"
-      }}
-    >
+      className="w-2"
+      style={{ background: "rgb(var(--type-color))" }}
+    />
 
-      {/* barra lateral */}
+    <div className="flex-1 p-4 flex flex-col gap-3">
 
-      <div
-        className="w-2"
-        style={{
-          background: "rgb(var(--type-color))"
-        }}
-      />
+      {/* HEADER */}
 
-      {/* contenido */}
+      <div className="flex items-center gap-2">
 
-      <div className="p-4 flex-1">
+        {/* sprite tipo */}
 
-        {/* header */}
+        <img
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-viii/legends-arceus/${type}.png`}
+          className="h-6 object-contain"
+        />
 
-        <div className="flex items-center justify-between mb-3">
+        {/* nombre movimiento */}
 
-          <h3 className="capitalize text-xl font-semibold">
-            {data.name.replace("-", " ")}
-          </h3>
+        <h3 className="capitalize text-lg font-semibold">
+          {data.name.replace("-", " ")}
+        </h3>
 
-          <div className="px-2 py-[2px] text-[0.7em] border border-white/30 rounded capitalize">
-            {type}
-          </div>
+        {/* icono categoría */}
 
-        </div>
-
-        {/* stats */}
-
-        <div className="grid grid-cols-2 gap-y-1 gap-x-4 text-[0.8em] mb-3">
-
-          <div className="opacity-70">Power</div>
-          <div>{data.power ?? "-"}</div>
-
-          <div className="opacity-70">Accuracy</div>
-          <div>{data.accuracy ?? "-"}</div>
-
-          <div className="opacity-70">PP</div>
-          <div>{data.pp}</div>
-
-          <div className="opacity-70">Priority</div>
-          <div>{data.priority}</div>
-
-          <div className="opacity-70">Category</div>
-          <div className="capitalize">{data.damage_class.name}</div>
-
-          <div className="opacity-70">Crit Rate</div>
-          <div>{critRate}</div>
-
-          {/* ailment */}
-
-          <div className="opacity-70">Status Effect</div>
-
-          <div className="capitalize">
-            {ailment !== "none"
-              ? `${ailment} ${ailmentChance ? `(${ailmentChance}%)` : ""}`
-              : "None"}
-          </div>
-
-          {/* effect chance */}
-
-          {effectChance && (
-            <>
-              <div className="opacity-70">Effect Chance</div>
-              <div>{effectChance}%</div>
-            </>
-          )}
-
-        </div>
-
-        {/* descripción */}
-
-        <div className="text-[0.75em] leading-relaxed bg-black/20 border border-white/20 rounded p-2">
-
-          {description.replace("$effect_chance", effectChance ?? "")}
-
-        </div>
+        <img
+          src={`/categories/${data.damage_class.name}.svg`}
+          className="h-5 ml-auto opacity-90"
+        />
 
       </div>
 
-    </div>
+      {/* STATS */}
 
-  );
+      <div className="grid grid-cols-2 gap-y-2 text-[0.8em]">
+
+        <div className="flex items-center gap-1 opacity-80">
+          ⚡ Power
+        </div>
+        <div>{data.power ?? "-"}</div>
+
+        <div className="flex items-center gap-1 opacity-80">
+          🎯 Accuracy
+        </div>
+        <div>{data.accuracy ?? "-"}</div>
+
+        <div className="flex items-center gap-1 opacity-80">
+          📦 PP
+        </div>
+        <div>{data.pp}</div>
+
+        <div className="flex items-center gap-1 opacity-80">
+          ⚡ Priority
+        </div>
+        <div>{data.priority}</div>
+
+        <div className="flex items-center gap-1 opacity-80">
+          💥 Crit Rate
+        </div>
+        <div>{critRate}</div>
+
+        {/* ailment */}
+
+        <div className="flex items-center gap-1 opacity-80">
+          🧪 Status
+        </div>
+
+        <div className="capitalize">
+          {ailment !== "none"
+            ? `${ailment} ${ailmentChance ? `(${ailmentChance}%)` : ""}`
+            : "None"}
+        </div>
+
+        {/* effect chance */}
+
+        {effectChance && (
+          <>
+            <div className="flex items-center gap-1 opacity-80">
+              ✨ Effect
+            </div>
+            <div>{effectChance}%</div>
+          </>
+        )}
+
+      </div>
+
+      {/* DESCRIPCIÓN */}
+
+      <div
+        className="
+        mt-1
+        text-[0.75em]
+        leading-relaxed
+        bg-black/25
+        border border-white/20
+        rounded
+        p-2
+      "
+      >
+        {description.replace("$effect_chance", effectChance ?? "")}
+      </div>
+
+    </div>
+  </div>
+);
 }

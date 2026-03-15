@@ -221,8 +221,7 @@ export default function MoveDetails({ move }) {
             border border-white/20
             rounded
             p-3
-            
-  max-h-[70%]
+  max-h-[340px] md:max-h-[650px]
   overflow-y-auto
 
           "

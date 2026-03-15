@@ -213,7 +213,7 @@ export default function MoveDetails({ move }) {
 
           <div className="flex flex-col gap-3">
             <div
-              className="
+              className="moves-scroll
             text-[0.8em] md:text-[0.95em]
             font-semibold
             leading-relaxed
@@ -222,12 +222,9 @@ export default function MoveDetails({ move }) {
             rounded
             p-3
             
-  max-h-[85%]
+  max-h-[70%]
   overflow-y-auto
 
-  scrollbar-thin
-  scrollbar-thumb-white/20
-  scrollbar-track-transparent
           "
             >
               {description.replace("$effect_chance", effectChance ?? "")}

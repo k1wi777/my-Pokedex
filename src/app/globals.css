@@ -32,6 +32,23 @@ body {
   cursor: pointer;
 }
 
+.moves-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.moves-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.moves-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+.moves-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.4);
+}
+
 
 @keyframes fadeIn{
   from{

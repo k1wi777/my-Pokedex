@@ -5,6 +5,7 @@ export default function MoveList({ moves, onSelect, selectedMove }) {
 
     <div
       className="
+      moves-scroll
       md:w-[40%]
       flex flex-col
       gap-1
@@ -12,11 +13,6 @@ export default function MoveList({ moves, onSelect, selectedMove }) {
       overflow-y-auto
       pr-1
 
-      scrollbar-thin
-      scrollbar-thumb-white/20
-      scrollbar-track-transparent
-
-      hover:scrollbar-thumb-white/40
       "
     >
 

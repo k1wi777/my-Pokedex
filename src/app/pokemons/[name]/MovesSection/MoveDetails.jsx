@@ -98,11 +98,11 @@ export default function MoveDetails({ move }) {
         {typeSprite && (
           <img
             src={typeSprite}
-            className="h-7 object-contain drop-shadow"
+            className="h-7 object-contain"
           />
         )}
 
-        <h3 className="capitalize text-xl font-semibold tracking-wide">
+        <h3 className="capitalize text-xl font-semibold">
           {data.name.replace("-", " ")}
         </h3>
 
@@ -113,7 +113,7 @@ export default function MoveDetails({ move }) {
             className="h-4"
           />
 
-          <span className="text-[0.75em] capitalize opacity-90">
+          <span className="text-[0.75em] capitalize">
             {data.damage_class.name}
           </span>
 
@@ -121,121 +121,170 @@ export default function MoveDetails({ move }) {
 
       </div>
 
-      {/* STATS */}
+      {/* GRID PRINCIPAL */}
 
-      <div
-        className="
-        grid
-        grid-cols-2
-        gap-y-3
-        gap-x-8
-        text-[0.8em]
-        bg-black/25
-        border border-white/20
-        rounded-lg
-        p-3
-      "
-      >
+      <div className="grid grid-cols-2 gap-4">
 
-        <div className="flex items-center gap-2 opacity-80">
-          <span className="w-2 h-2 rounded-full bg-yellow-400"></span>
-          Power
-        </div>
-        <div className="font-semibold">{data.power ?? "-"}</div>
+        {/* STATS */}
 
-        <div className="flex items-center gap-2 opacity-80">
-          <span className="w-2 h-2 rounded-full bg-blue-400"></span>
-          Accuracy
-        </div>
-        <div className="font-semibold">{data.accuracy ?? "-"}</div>
+        <div className="flex flex-col gap-2">
 
-        <div className="flex items-center gap-2 opacity-80">
-          <span className="w-2 h-2 rounded-full bg-purple-400"></span>
-          PP
-        </div>
-        <div className="font-semibold">{data.pp}</div>
+          {/* POWER */}
 
-        <div className="flex items-center gap-2 opacity-80">
-          <span className="w-2 h-2 rounded-full bg-red-400"></span>
-          Priority
-        </div>
-        <div className="font-semibold">{data.priority}</div>
+          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-2 text-[0.8em]">
 
-        <div className="flex items-center gap-2 opacity-80">
-          <span className="w-2 h-2 rounded-full bg-green-400"></span>
-          Crit Rate
-        </div>
-        <div className="font-semibold">{critRate}</div>
+            <div className="flex items-center gap-2">
 
-      </div>
+              <span className="w-2 h-2 rounded-full bg-red-400"></span>
 
-      {/* EFFECT BADGES */}
+              <span className="opacity-80">Power</span>
 
-      {(ailmentBadge || effectChance) && (
+            </div>
 
-        <div className="flex flex-wrap gap-2">
-
-          {ailmentBadge && (
-            <span
-              className="
-                flex
-                items-center
-                gap-1
-                px-3
-                py-1
-                rounded-md
-                bg-red-500/20
-                border
-                border-red-400/40
-                text-[0.75em]
-                capitalize
-              "
-            >
-              <span className="w-2 h-2 bg-red-400 rounded-full"></span>
-              {ailmentBadge}
+            <span className="font-semibold">
+              {data.power ?? "-"}
             </span>
+
+          </div>
+
+          {/* ACCURACY */}
+
+          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-2 text-[0.8em]">
+
+            <div className="flex items-center gap-2">
+
+              <span className="w-2 h-2 rounded-full bg-blue-400"></span>
+
+              <span className="opacity-80">Accuracy</span>
+
+            </div>
+
+            <span className="font-semibold">
+              {data.accuracy ?? "-"}
+            </span>
+
+          </div>
+
+          {/* PP */}
+
+          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-2 text-[0.8em]">
+
+            <div className="flex items-center gap-2">
+
+              <span className="w-2 h-2 rounded-full bg-purple-400"></span>
+
+              <span className="opacity-80">PP</span>
+
+            </div>
+
+            <span className="font-semibold">
+              {data.pp}
+            </span>
+
+          </div>
+
+          {/* PRIORITY */}
+
+          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-2 text-[0.8em]">
+
+            <div className="flex items-center gap-2">
+
+              <span className="w-2 h-2 rounded-full bg-yellow-400"></span>
+
+              <span className="opacity-80">Priority</span>
+
+            </div>
+
+            <span className="font-semibold">
+              {data.priority}
+            </span>
+
+          </div>
+
+          {/* CRIT RATE */}
+
+          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-2 text-[0.8em]">
+
+            <div className="flex items-center gap-2">
+
+              <span className="w-2 h-2 rounded-full bg-green-400"></span>
+
+              <span className="opacity-80">Crit Rate</span>
+
+            </div>
+
+            <span className="font-semibold">
+              {critRate}
+            </span>
+
+          </div>
+
+        </div>
+
+        {/* DESCRIPCIÓN */}
+
+        <div className="flex flex-col gap-3">
+
+          <div
+            className="
+            text-[0.8em]
+            leading-relaxed
+            bg-black/35
+            border border-white/20
+            rounded
+            p-3
+          "
+          >
+            {description.replace("$effect_chance", effectChance ?? "")}
+          </div>
+
+          {(ailmentBadge || effectChance) && (
+
+            <div className="flex flex-wrap gap-2">
+
+              {ailmentBadge && (
+                <span
+                  className="
+                  px-3
+                  py-1
+                  rounded-md
+                  bg-red-500/20
+                  border
+                  border-red-400/40
+                  text-[0.75em]
+                  capitalize
+                "
+                >
+                  {ailmentBadge}
+                </span>
+              )}
+
+              {effectChance && (
+                <span
+                  className="
+                  px-3
+                  py-1
+                  rounded-md
+                  bg-yellow-500/20
+                  border
+                  border-yellow-400/40
+                  text-[0.75em]
+                "
+                >
+                  Effect {effectChance}%
+                </span>
+              )}
+
+            </div>
+
           )}
 
-          {effectChance && (
-            <span
-              className="
-                flex
-                items-center
-                gap-1
-                px-3
-                py-1
-                rounded-md
-                bg-yellow-500/20
-                border
-                border-yellow-400/40
-                text-[0.75em]
-              "
-            >
-              <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>
-              Effect {effectChance}%
-            </span>
-          )}
-
         </div>
 
-      )}
-
-      {/* DESCRIPTION */}
-
-      <div
-        className="
-          text-[0.8em]
-          leading-relaxed
-          bg-black/35
-          border border-white/20
-          rounded-lg
-          p-3
-        "
-      >
-        {description.replace("$effect_chance", effectChance ?? "")}
       </div>
 
     </div>
+
   </div>
 );
 }

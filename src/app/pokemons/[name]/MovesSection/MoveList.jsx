@@ -1,5 +1,4 @@
 import MoveItem from "./MoveItem"
-
 export default function MoveList({ moves, onSelect, selectedMove }) {
 
   return (
@@ -12,6 +11,12 @@ export default function MoveList({ moves, onSelect, selectedMove }) {
       max-h-[280px]
       overflow-y-auto
       pr-1
+
+      scrollbar-thin
+      scrollbar-thumb-white/20
+      scrollbar-track-transparent
+
+      hover:scrollbar-thumb-white/40
       "
     >
 
@@ -29,4 +34,5 @@ export default function MoveList({ moves, onSelect, selectedMove }) {
     </div>
 
   )
+
 }

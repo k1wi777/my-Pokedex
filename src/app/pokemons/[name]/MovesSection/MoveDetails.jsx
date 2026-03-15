@@ -95,7 +95,7 @@ export default function MoveDetails({ move }) {
             {data.name.replace("-", " ")}
           </h3>
 
-          <div className="ml-auto flex items-center gap-2 px-2 py-1 bg-black/30 border border-white/20 rounded">
+          <div className="ml-auto flex items-center gap-2 px-2 py-1 bg-[#363636] border border-white/20 rounded">
             <img
               src={`/categories/${data.damage_class.name}.svg`}
               className="h-4"
@@ -110,8 +110,6 @@ export default function MoveDetails({ move }) {
         {/* GRID PRINCIPAL */}
 
         <div className="grid grid-cols-2 gap-4 p-4">
-          
-
           {/* STATS */}
 
           <div className="flex flex-col gap-2">
@@ -216,13 +214,20 @@ export default function MoveDetails({ move }) {
           <div className="flex flex-col gap-3">
             <div
               className="
-            text-[0.95em]
+            text-[0.8em] md:text-[0.95em]
             font-semibold
             leading-relaxed
             bg-black/35
             border border-white/20
             rounded
             p-3
+            
+  max-h-[85%]
+  overflow-y-auto
+
+  scrollbar-thin
+  scrollbar-thumb-white/20
+  scrollbar-track-transparent
           "
             >
               {description.replace("$effect_chance", effectChance ?? "")}

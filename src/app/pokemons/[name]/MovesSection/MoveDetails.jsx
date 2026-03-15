@@ -72,28 +72,21 @@ export default function MoveDetails({ move }) {
       rounded-xl
       overflow-hidden
       border border-white/20
-      type-${type}
+      type-${type} color-white
     `}
     style={{
       background:
         "linear-gradient(135deg, rgb(var(--type-color) / 0.35), rgb(var(--type-color-2) / 0.15))",
-      color: "rgb(var(--type-text))",
       boxShadow: "0 0 16px rgb(var(--type-color) / 0.35)",
     }}
   >
 
-    {/* barra lateral */}
-
-    <div
-      className="w-2"
-      style={{ background: "rgb(var(--type-color))" }}
-    />
 
     <div className="flex-1 flex flex-col p-4 gap-4">
 
       {/* HEADER */}
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3"  style={{ background: "rgb(var(--type-color))" }}>
 
         {typeSprite && (
           <img
@@ -131,7 +124,7 @@ export default function MoveDetails({ move }) {
 
           {/* POWER */}
 
-          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-2 text-[0.8em]">
+          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-1 text-[0.8em]">
 
             <div className="flex items-center gap-2">
 
@@ -149,7 +142,7 @@ export default function MoveDetails({ move }) {
 
           {/* ACCURACY */}
 
-          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-2 text-[0.8em]">
+          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-1 text-[0.8em]">
 
             <div className="flex items-center gap-2">
 
@@ -167,7 +160,7 @@ export default function MoveDetails({ move }) {
 
           {/* PP */}
 
-          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-2 text-[0.8em]">
+          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-1 text-[0.8em]">
 
             <div className="flex items-center gap-2">
 
@@ -185,7 +178,7 @@ export default function MoveDetails({ move }) {
 
           {/* PRIORITY */}
 
-          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-2 text-[0.8em]">
+          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-1 text-[0.8em]">
 
             <div className="flex items-center gap-2">
 
@@ -203,7 +196,7 @@ export default function MoveDetails({ move }) {
 
           {/* CRIT RATE */}
 
-          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-2 text-[0.8em]">
+          <div className="flex items-center justify-between bg-black/25 border border-white/20 rounded px-3 py-1 text-[0.8em]">
 
             <div className="flex items-center gap-2">
 
@@ -227,7 +220,8 @@ export default function MoveDetails({ move }) {
 
           <div
             className="
-            text-[0.8em]
+            text-[0.95em]
+            font-semibold
             leading-relaxed
             bg-black/35
             border border-white/20

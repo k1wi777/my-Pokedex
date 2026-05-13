@@ -18,7 +18,8 @@ export default function Search({small= false, placeholder='ej. Pikachu o 25'}){
     return <form onSubmit={handleSubmit} className={small ?``:``}>
           <div className="
           w-ful 
-      border-2 border-black
+      border-1 border-white/60
+      
       flex
       rounded-full
       overflow-hidden
@@ -30,7 +31,7 @@ export default function Search({small= false, placeholder='ej. Pikachu o 25'}){
               type="text"
               placeholder={placeholder}
               className="
-          bg-white/70
+          bg-white/40
           py-2 px-3
           text-black
           text-sm
@@ -43,8 +44,10 @@ export default function Search({small= false, placeholder='ej. Pikachu o 25'}){
             <button
               type="submit"
               className="
-          bg-purple-600
-          hover:bg-purple-700
+          bg-[rgba(127,5,220,0.2)]
+          border-r-2 border-y-2 border-[rgba(127,5,220,0.7)]
+          rounded-r-3xl
+          hover:bg-[rgba(127,5,220,0.7)]
           transition
           px-6
           font-black
@@ -52,7 +55,7 @@ export default function Search({small= false, placeholder='ej. Pikachu o 25'}){
           text-white
         "
             >
-              <img src="/icons/buscar.svg" alt="icon search"  className='w-8 md:w-12 drop-shadow-[0_0_10px_rgba(0,255,255,0.35)]'/>
+              <img src="/icons/search.svg" alt="icon search"  className='w-8 md:w-12 drop-shadow-[0_0_10px_rgba(0,255,255,0.35)]'/>
             </button>
           </div>
         </form>

@@ -8,10 +8,10 @@ import CartPokeball from '@/app/components/CartPokeball'
 import ObserverCart from "./components/ObserverCart";
 import Image from "next/image";
 
-const number = randomNumber(NUMBER_POKEMON - 20);
 
 
 export default async function HomePage() {
+  const number = randomNumber(NUMBER_POKEMON - 20);
   const { count, next, previous, results } = await fetchPokemons(number);
   const initialDetailed = await fetchInitialDetailed(results)
   const listPokeballs = await fetchPokeballs();

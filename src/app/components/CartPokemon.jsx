@@ -44,7 +44,7 @@ export default function CartPokemon({
         )}
 
         <Image
-          src={pkmn.sprites.other["official-artwork"].front_default}
+          src={pkmn.sprites.other["official-artwork"].front_default|| pkmn.sprites.front_default}
           alt={"pokemon " + pkmn.name}
           width={400}
           height={400}
@@ -76,7 +76,7 @@ export default function CartPokemon({
             to-zinc-600
             text-zinc-200
             shadow-inner
-           ${bottomClass?'px-4':'px-1'}` }
+           ${bottomClass ? "px-4" : "px-1"}`}
           >
             #{String(pkmn.id).padStart(3, "0")}
           </span>
@@ -102,8 +102,10 @@ export default function CartPokemon({
           </div>
 
           {/* seccion de otros datos como altura y peso */}
-          <div className={`flex  justify-center mt-2 sm:mt-3
- sm:gap-2 text-[0.8em] ${bottomClass? 'gap-3': 'gap-1'}`}>
+          <div
+            className={`flex  justify-center mt-2 sm:mt-3
+ sm:gap-2 text-[0.8em] ${bottomClass ? "gap-3" : "gap-1"}`}
+          >
             <div
               className="
               flex  items-center

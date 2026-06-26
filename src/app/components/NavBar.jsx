@@ -34,7 +34,7 @@ export default function NavBar() {
         />
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex gap-6 text-lg">
+        <ul className="hidden md:flex gap-3 text-lg">
           <li>
             <Link href="/" className={linkStyle("/")}>
               Inicio
@@ -44,6 +44,12 @@ export default function NavBar() {
           <li>
             <Link href="/pokemons" className={linkStyle("/pokemons")}>
               Pokédex
+            </Link>
+          </li>
+
+          <li>
+            <Link href="/games" className={linkStyle("/games")}>
+              Juegos
             </Link>
           </li>
         </ul>
@@ -76,6 +82,9 @@ export default function NavBar() {
           </Link>
           <Link href="/pokemons" className={linkStyle("/pokemons")}>
             Pokédex
+          </Link>
+          <Link href="/games" className={linkStyle("/games")}>
+            Juegos
           </Link>
         </div>
       )}

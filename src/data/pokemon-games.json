@@ -1,0 +1,317 @@
+[
+  {
+    "id": 1,
+    "name": "Generation I",
+    "mainRegion": "Kanto",
+    "games": [
+      {
+        "name": "Red",
+        "id": "1",
+        "rawgId": 23762,
+        "rawgCollection": "red-blue-yellow",
+        "cover": "https://i.pinimg.com/736x/38/ea/e2/38eae246007f9138ac30b552b2319c05.jpg"
+      },
+      {
+        "name": "Blue",
+        "id": "2",
+        "rawgId": 23762,
+        "rawgCollection": "red-blue-yellow",
+        "cover": "https://i.pinimg.com/736x/8f/06/3e/8f063ee4aa07243dd904a47e4741dede.jpg"
+      },
+      {
+        "name": "Yellow",
+        "id": "3",
+        "rawgId": 23762,
+        "rawgCollection": "red-blue-yellow",
+        "cover":"https://i.pinimg.com/736x/08/10/2b/08102b3fb680cad4c8f05b5854011794.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Generation II",
+    "mainRegion": "Johto",
+    "games": [
+      {
+        "name": "Gold",
+        "id": "4",
+        "rawgId": 27936,
+        "rawgCollection": "gold-silver",
+        "cover":"https://i.ebayimg.com/images/g/H8MAAOSw8GZkmPmw/s-l1200.jpg"
+      },
+      {
+        "name": "Silver",
+        "id": "5",
+        "rawgId": 27936,
+        "rawgCollection": "gold-silver",
+        "cover":"https://i.ebayimg.com/images/g/kVEAAOSwLEJkmPnT/s-l1600.webp"
+      },
+      {
+        "name": "Crystal",
+        "id": "6",
+        "rawgId": 50971,
+        "rawgCollection": "crystal",
+        "cover":"https://i.ebayimg.com/images/g/mZQAAOSwGzFkmPl9/s-l1600.webp"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Generation III",
+    "mainRegion": "Hoenn",
+    "games": [
+      {
+        "name": "Ruby",
+        "id": "7",
+        "rawgId": 52372,
+        "rawgCollection": "ruby-sapphire-emerald",
+        "cover":"https://i.ebayimg.com/images/g/w8gAAOSwjy5kmgYW/s-l1600.webp"
+      },
+      {
+        "name": "Sapphire",
+        "id": "8",
+        "rawgId": 52372,
+        "rawgCollection": "ruby-sapphire-emerald",
+        "cover":"https://i.ebayimg.com/images/g/pKcAAOSw1WlkmgZB/s-l1600.webp"
+      },
+      {
+        "name": "Emerald",
+        "id": "9",
+        "rawgId": 52372,
+        "rawgCollection": "ruby-sapphire-emerald",
+        "cover":"https://m.media-amazon.com/images/M/MV5BMmU5YmM4MGQtODE5MS00NmYwLWEwNDItY2Q2ZmJjYzFhOTFhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "FireRed",
+        "id": "10",
+        "rawgId": 53473,
+        "rawgCollection": "firered-leafgreen",
+        "cover":"https://i.ebayimg.com/images/g/IFsAAOSw0gJkmgW7/s-l1600.webp"
+      },
+      {
+        "name": "LeafGreen",
+        "id": "11",
+        "rawgId": 53473,
+        "rawgCollection": "firered-leafgreen",
+        "cover":"https://i.ebayimg.com/images/g/osUAAOSwrilkmgXq/s-l1600.webp"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Generation IV",
+    "mainRegion": "Sinnoh",
+    "games": [
+      {
+        "name": "Diamond",
+        "id": "12",
+        "rawgId": 25131,
+        "rawgCollection": "diamond-pearl",
+        "cover":"https://m.media-amazon.com/images/M/MV5BYmM4NDA4OTAtOWE3MS00ZTllLTgwMDMtYjMyY2I0ODg5ZThkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Pearl",
+        "id": "13",
+        "rawgId": 25131,
+        "rawgCollection": "diamond-pearl",
+        "cover":"https://m.media-amazon.com/images/M/MV5BYmI0ZjM3NWMtYTAyYy00OTI5LWE4NGYtNjQ5MDI0MzI1OTUyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Platinum",
+        "id": "14",
+        "rawgId": 25856,
+        "rawgCollection": "platinum",
+        "cover":"https://m.media-amazon.com/images/M/MV5BNzJlNDZjMzctYTYyZS00YTlhLWJhMTAtZWIyOTQwNTlmNjY4XkEyXkFqcGc@._V1_.jpg"
+      },
+      {
+        "name": "HeartGold",
+        "id": "15",
+        "rawgId": 26316,
+        "rawgCollection": "heartgold-soulsilver",
+        "cover":"https://m.media-amazon.com/images/M/MV5BMTEwOGQ5M2EtNGU4NS00YjlhLWE5MjAtYmI5ZDU3ZjFhNzM5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "SoulSilver",
+        "id": "16",
+        "rawgId": 26316,
+        "rawgCollection": "heartgold-soulsilver",
+        "cover":"https://m.media-amazon.com/images/M/MV5BY2IwMDQxMGMtMzczOC00ZjJmLWEwZGMtMmVhN2JmNWFiYTc2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Generation V",
+    "mainRegion": "Unova",
+    "games": [
+      {
+        "name": "Black",
+        "id": "17",
+        "rawgId": 330615,
+        "rawgCollection": "black-white",
+        "cover":"https://m.media-amazon.com/images/M/MV5BNDJmM2IzM2YtZjJjYS00ZGE2LWFkZTctNzI3NjJlNmFkODJhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "White",
+        "id": "18",
+        "rawgId": 330615,
+        "rawgCollection": "black-white",
+        "cover":"https://m.media-amazon.com/images/M/MV5BZWFjNWE2NDgtYmY1NS00ZmU0LTlhYTYtOGMyZDkxNGUxMmY2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Black 2",
+        "id": "21",
+        "rawgId": 331454,
+        "rawgCollection": "black2-white2",
+        "cover":"https://m.media-amazon.com/images/M/MV5BYWQzNjY0M2UtODFmZS00MGE0LWJmZjMtMzI1ZjhiZWU0YjE2XkEyXkFqcGc@._V1_QL75_UX1000.jpg"
+      },
+      {
+        "name": "White 2",
+        "id": "22",
+        "rawgId": 331454,
+        "rawgCollection": "black2-white2",
+        "cover":"https://m.media-amazon.com/images/M/MV5BYmMyOTY2OWQtNWYwMy00ZjNmLWJhYTAtMWI5ZGNlYjYzMGVlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Generation VI",
+    "mainRegion": "Kalos",
+    "games": [
+      {
+        "name": "X",
+        "id": "23",
+        "rawgId": 27312,
+        "rawgCollection": "x-y",
+        "cover":"https://m.media-amazon.com/images/M/MV5BNGEwZTEzYTAtZTRmYS00Mzc0LTk5ZDAtMWEzOTBmMmQzMWUxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Y",
+        "id": "24",
+        "rawgId": 27312,
+        "rawgCollection": "x-y",
+        "cover":"https://m.media-amazon.com/images/M/MV5BZDdiZTEzNzQtMDRiYS00ZjQwLWEzZmEtOWRmZTdmY2JkMzY4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Omega Ruby",
+        "id": "25",
+        "rawgId": 23973,
+        "rawgCollection": "omega-ruby-alpha-sapphire",
+        "cover":"https://m.media-amazon.com/images/M/MV5BYTczNjQwODMtMThkYy00MDhiLWEwZDEtYzFjZjIwNzNjMGViXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Alpha Sapphire",
+        "id": "26",
+        "rawgId": 23973,
+        "rawgCollection": "omega-ruby-alpha-sapphire",
+        "cover":"https://m.media-amazon.com/images/M/MV5BODZhMDZlN2MtNjk0YS00NGU3LTkxZDItMGI2YTAzNmUwZDc4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Generation VII",
+    "mainRegion": "Alola",
+    "games": [
+      {
+        "name": "Sun",
+        "id": "27",
+        "rawgId": 23748,
+        "rawgCollection": "sun-moon",
+        "cover":"https://m.media-amazon.com/images/M/MV5BYzY4MmY3MzAtZmRhOS00MWU3LWFkN2YtNjY3OTI2ZGNlYTg5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Moon",
+        "id": "28",
+        "rawgId": 23748,
+        "rawgCollection": "sun-moon",
+        "cover":"https://m.media-amazon.com/images/M/MV5BZmNiNTFjZDAtODcyNy00ODMyLTliYWItYjAxZTIwM2Q2YzQ3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Ultra Sun",
+        "id": "29",
+        "rawgId": 27939,
+        "rawgCollection": "ultra-sun-ultra-moon",
+        "cover":"https://m.media-amazon.com/images/M/MV5BYjdmNGZlYTItNmJjZi00ZDY0LTgyNDktNWU2YzhkYWRiZDVkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Ultra Moon",
+        "id": "30",
+        "rawgId": 27939,
+        "rawgCollection": "ultra-sun-ultra-moon",
+        "cover":"https://m.media-amazon.com/images/M/MV5BNTg5Y2IwZGMtYzZmMC00ZTdlLTg1MDctNjNiNWE3ODdlNjYyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Generation VIII",
+    "mainRegion": "Galar",
+    "games": [
+      {
+        "name": "Sword",
+        "id": "33",
+        "rawgId": 282825,
+        "rawgCollection": "sword-shield",
+        "cover":"https://m.media-amazon.com/images/M/MV5BYjMwMDFkMDEtZGUyNC00NjBhLTk5YTItZThkMTAyNjczYThiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Shield",
+        "id": "34",
+        "rawgId": 282825,
+        "rawgCollection": "sword-shield",
+        "cover":"https://m.media-amazon.com/images/M/MV5BNzc4ZjM2ZjktZDIzMS00NTAwLWJhMTQtZDZmZGQzZjg0MzM3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Brilliant Diamond",
+        "id": "37",
+        "rawgId": 564763,
+        "rawgCollection": "brilliant-diamond-shining-pearl",
+        "cover":"https://m.media-amazon.com/images/M/MV5BNjE0MTU4ZmQtOTUxMS00N2VjLTlhYWUtYzEwY2NmN2ZhMTg5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Shining Pearl",
+        "id": "38",
+        "rawgId": 564763,
+        "rawgCollection": "brilliant-diamond-shining-pearl",
+        "cover":"https://m.media-amazon.com/images/M/MV5BNDhlY2Q5NmMtNTAxNC00MWJhLTk3YjUtMTYxOTNmMTA2YTdkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Legends: Arceus",
+        "id": "39",
+        "rawgId": 564761,
+        "rawgCollection": "legends-arceus",
+        "cover":"https://m.media-amazon.com/images/M/MV5BMDQ3ZjQyNjMtYjI0Yi00MDQxLTk0MzQtZjBiYmY0MWYyY2UyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Generation IX",
+    "mainRegion": "Paldea",
+    "games": [
+      {
+        "name": "Scarlet",
+        "id": "40",
+        "rawgId": 747505,
+        "rawgCollection": "scarlet-violet",
+        "cover":"https://m.media-amazon.com/images/M/MV5BMmRjZmE0NmMtNjgxZC00OTE4LWI4ZjctMWYyNDVjNzA5ODUwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "Violet",
+        "id": "41",
+        "rawgId": 747505,
+        "rawgCollection": "scarlet-violet",
+        "cover":"https://m.media-amazon.com/images/M/MV5BZmU1NzA4MjYtOTU2YS00Y2E4LTk1ZTItMWEyYTAyZTczMDQ5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      },
+      {
+        "name": "legends-za",
+        "id": "47",
+        "rawgId": 1000197,
+        "rawgCollection": "legends-za",
+        "cover":"https://m.media-amazon.com/images/M/MV5BZjNiZTc4ZmQtOGI3OS00MzZmLTk1ZTYtMzNmMWQwOWVjODc2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      }
+    ]
+  }
+]

@@ -12,6 +12,8 @@ export interface PokemonGameLocal {
   cover: string;
   frontCover?: string;
   trailerUrl?: string;
+  relations?: GameRelation[];
+  /** @deprecated Usar `relations` */
   relation?: GameRelation;
 }
 
@@ -41,16 +43,6 @@ export interface RawgScreenshot {
   image: string;
   width: number;
   height: number;
-}
-
-export interface RawgMovie {
-  id: number;
-  name: string;
-  preview: string;
-  data: {
-    max?: string;
-    "480"?: string;
-  };
 }
 
 export interface RawgGameDetails {
@@ -93,14 +85,15 @@ export interface EnrichedPokemonGame {
   publishers: string[];
   playtime: number | null;
   esrbRating: string;
-  relation?: GameRelation;
+  relations?: GameRelation[];
 }
 
 export interface GameMediaItem {
-  type: "image" | "video";
+  type: "image" | "video" | "youtube";
   src: string;
   preview?: string;
   label?: string;
+  youtubeId?: string;
 }
 
 export interface LinkedGameEntry {

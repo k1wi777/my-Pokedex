@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import useCarousel from "@/hooks/useCarousel";
+import CarouselNavButton from "./CarouselNavButton";
+import Image from "next/image";
 
 
 export default function Carousel({ children }) {
@@ -45,46 +46,8 @@ export default function Carousel({ children }) {
   w-full
   relative "
       >
-        {/* Flechas */}
-        <button
-          onClick={next}
-          className="   absolute left-2 top-1/2 -translate-y-1/2 z-20
-  bg-black/40 text-white
-  p-3 sm:p-4
-  rounded-full
-  opacity-70 md:opacity-0
-  md:group-hover:opacity-50
-  hover:opacity-100
-  transition"
-        >
-          <Image
-            src="/arrow.png"
-            alt=""
-            width="24"
-            height="24"
-            className="rotate-180  invert w-15 "
-          />
-        </button>
-
-        <button
-          onClick={prev}
-          className="   absolute right-2 top-1/2 -translate-y-1/2 z-20
-  bg-black/40 text-white
-  p-3 sm:p-4
-  rounded-full
-  opacity-70 md:opacity-0
-  md:group-hover:opacity-50
-  hover:opacity-100
-  transition"
-        >
-          <Image
-            src="/arrow.png"
-            alt=""
-            width="24"
-            height="24"
-            className=" invert w-15 "
-          />
-        </button>
+        <CarouselNavButton direction="prev" onClick={next} ariaLabel="Anterior" className="z-20 opacity-70 md:opacity-0 md:group-hover:opacity-50" />
+        <CarouselNavButton direction="next" onClick={prev} ariaLabel="Siguiente" className="z-20 opacity-70 md:opacity-0 md:group-hover:opacity-50" />
 
         {/* organizacion de las carts */}
         {/* MOBILE VERSION */}

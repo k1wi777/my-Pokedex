@@ -10,7 +10,8 @@
         "rawgId": 23762,
         "rawgCollection": "red-blue-yellow",
         "cover": "https://i.pinimg.com/736x/38/ea/e2/38eae246007f9138ac30b552b2319c05.jpg",
-        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/d/db/latest/20160715095430/Car%C3%A1tula_de_Pok%C3%A9mon_Rojo.jpg"
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/d/db/latest/20160715095430/Car%C3%A1tula_de_Pok%C3%A9mon_Rojo.jpg",
+        "trailerUrl": "https://youtu.be/PFp23ioZsCI?si=_mHGTqIkDSMv23oV"
       },
       {
         "name": "Blue",
@@ -18,20 +19,29 @@
         "rawgId": 23762,
         "rawgCollection": "red-blue-yellow",
         "cover": "https://i.pinimg.com/736x/8f/06/3e/8f063ee4aa07243dd904a47e4741dede.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/9/9d/latest/20160715095744/Car%C3%A1tula_de_Pok%C3%A9mon_Azul.jpg"
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/9/9d/latest/20160715095744/Car%C3%A1tula_de_Pok%C3%A9mon_Azul.jpg",
+        "trailerUrl": "https://youtu.be/8iHEQxJXq9I?si=naLQzslfCE14fEPv"
       },
       {
         "name": "Yellow",
         "id": "3",
         "rawgId": 23762,
         "rawgCollection": "red-blue-yellow",
-        "cover":"https://i.pinimg.com/736x/08/10/2b/08102b3fb680cad4c8f05b5854011794.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/9/95/latest/20160715100157/Pok%C3%A9mon_Amarillo.png",
-        "relation": {
-          "type": "enhanced",
-          "targetId": "1",
-          "label": "Versión especial basada en Pokémon Red"
-        }
+        "cover": "https://i.pinimg.com/736x/08/10/2b/08102b3fb680cad4c8f05b5854011794.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/9/95/latest/20160715100157/Pok%C3%A9mon_Amarillo.png",
+        "trailerUrl": "https://youtu.be/sl_5qnfwIAc?si=db1TZynIgbLcvQoR",
+        "relations": [
+          {
+            "type": "enhanced",
+            "targetId": "1",
+            "label": "Versión especial basada en Pokémon Red"
+          },
+          {
+            "type": "enhanced",
+            "targetId": "2",
+            "label": "Versión especial basada en Pokémon Blue"
+          }
+        ]
       }
     ]
   },
@@ -45,29 +55,39 @@
         "id": "4",
         "rawgId": 27936,
         "rawgCollection": "gold-silver",
-        "cover":"https://i.ebayimg.com/images/g/H8MAAOSw8GZkmPmw/s-l1200.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/6/6b/latest/20160715092932/Pokemon_Edici%C3%B3n_Oro.jpg"
+        "cover": "https://i.ebayimg.com/images/g/H8MAAOSw8GZkmPmw/s-l1200.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/6/6b/latest/20160715092932/Pokemon_Edici%C3%B3n_Oro.jpg",
+        "trailerUrl": "https://youtu.be/gK-rwX4H2Iw?si=I6y7k_NSYUv1h3w2"
       },
       {
         "name": "Silver",
         "id": "5",
         "rawgId": 27936,
         "rawgCollection": "gold-silver",
-        "cover":"https://i.ebayimg.com/images/g/kVEAAOSwLEJkmPnT/s-l1600.webp",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/7/73/latest/20160715093037/Pokemon_Edici%C3%B3n_Plata.jpg"
+        "cover": "https://i.ebayimg.com/images/g/kVEAAOSwLEJkmPnT/s-l1600.webp",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/7/73/latest/20160715093037/Pokemon_Edici%C3%B3n_Plata.jpg",
+        "trailerUrl": "https://youtu.be/gK-rwX4H2Iw?si=I6y7k_NSYUv1h3w2"
       },
       {
         "name": "Crystal",
         "id": "6",
         "rawgId": 50971,
         "rawgCollection": "crystal",
-        "cover":"https://i.ebayimg.com/images/g/mZQAAOSwGzFkmPl9/s-l1600.webp",
-        "relation": {
-          "type": "enhanced",
-          "targetId": "4",
-          "label": "Versión extendida de Pokémon Gold & Silver"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/3/3b/latest/20160715093139/Pokemon_Edici%C3%B3n_Cristal.jpg"
+        "cover": "https://i.ebayimg.com/images/g/mZQAAOSwGzFkmPl9/s-l1600.webp",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/3/3b/latest/20160715093139/Pokemon_Edici%C3%B3n_Cristal.jpg",
+        "trailerUrl": "https://youtu.be/cM__WtFavIc?si=Mt-MKI3UMgWMHqIu",
+        "relations": [
+          {
+            "type": "enhanced",
+            "targetId": "4",
+            "label": "Versión extendida de Pokémon Gold"
+          },
+          {
+            "type": "enhanced",
+            "targetId": "5",
+            "label": "Versión extendida de Pokémon Silver"
+          }
+        ]
       }
     ]
   },
@@ -81,55 +101,71 @@
         "id": "7",
         "rawgId": 52372,
         "rawgCollection": "ruby-sapphire-emerald",
-        "cover":"https://i.ebayimg.com/images/g/w8gAAOSwjy5kmgYW/s-l1600.webp",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/0/03/latest/20211204124626/Car%C3%A1tula_de_Rub%C3%AD.png"
+        "cover": "https://i.ebayimg.com/images/g/w8gAAOSwjy5kmgYW/s-l1600.webp",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/0/03/latest/20211204124626/Car%C3%A1tula_de_Rub%C3%AD.png",
+        "trailerUrl": "https://youtu.be/sEUos3lcxro?si=UpT-7dAT96WjCuYI"
       },
       {
         "name": "Sapphire",
         "id": "8",
         "rawgId": 52372,
         "rawgCollection": "ruby-sapphire-emerald",
-        "cover":"https://i.ebayimg.com/images/g/pKcAAOSw1WlkmgZB/s-l1600.webp",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/d/d3/latest/20211204124644/Car%C3%A1tula_de_Zafiro.png"
+        "cover": "https://i.ebayimg.com/images/g/pKcAAOSw1WlkmgZB/s-l1600.webp",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/d/d3/latest/20211204124644/Car%C3%A1tula_de_Zafiro.png",
+        "trailerUrl": "https://youtu.be/sEUos3lcxro?si=UpT-7dAT96WjCuYI"
       },
       {
         "name": "Emerald",
         "id": "9",
         "rawgId": 52372,
         "rawgCollection": "ruby-sapphire-emerald",
-        "cover":"https://m.media-amazon.com/images/M/MV5BMmU5YmM4MGQtODE5MS00NmYwLWEwNDItY2Q2ZmJjYzFhOTFhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/0/02/latest/20211108123052/Caratula_Esmeralda.jpg",
-        "relation": {
-          "type": "enhanced",
-          "targetId": "7",
-          "label": "Versión extendida de Pokémon Ruby & Sapphire"
-        }
+        "cover": "https://m.media-amazon.com/images/M/MV5BMmU5YmM4MGQtODE5MS00NmYwLWEwNDItY2Q2ZmJjYzFhOTFhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/0/02/latest/20211108123052/Caratula_Esmeralda.jpg",
+        "trailerUrl": "https://youtu.be/KInoJimjJzI?si=vHRAm1k2GO1TZrlM",
+        "relations": [
+          {
+            "type": "enhanced",
+            "targetId": "7",
+            "label": "Versión extendida de Pokémon Ruby"
+          },
+          {
+            "type": "enhanced",
+            "targetId": "8",
+            "label": "Versión extendida de Pokémon Sapphire"
+          }
+        ]
       },
       {
         "name": "FireRed",
         "id": "10",
         "rawgId": 53473,
         "rawgCollection": "firered-leafgreen",
-        "cover":"https://i.ebayimg.com/images/g/IFsAAOSw0gJkmgW7/s-l1600.webp",
-        "relation": {
-          "type": "remake",
-          "targetId": "1",
-          "label": "Remake de Pokémon Red"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/a/ac/latest/20211108122617/Car%C3%A1tula_de_Rojo_Fuego.png"
+        "cover": "https://i.ebayimg.com/images/g/IFsAAOSw0gJkmgW7/s-l1600.webp",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/a/ac/latest/20211108122617/Car%C3%A1tula_de_Rojo_Fuego.png",
+        "trailerUrl": "https://youtu.be/atg7ZtwFwGU?si=yb8SPK0MZ4AZux7Z",
+        "relations": [
+          {
+            "type": "remake",
+            "targetId": "1",
+            "label": "Remake de Pokémon Red"
+          }
+        ]
       },
       {
         "name": "LeafGreen",
         "id": "11",
         "rawgId": 53473,
         "rawgCollection": "firered-leafgreen",
-        "cover":"https://i.ebayimg.com/images/g/osUAAOSwrilkmgXq/s-l1600.webp",
-        "relation": {
-          "type": "remake",
-          "targetId": "2",
-          "label": "Remake de Pokémon Blue"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/3/31/latest/20211108122911/Car%C3%A1tula_de_Verde_Hoja.png"
+        "cover": "https://i.ebayimg.com/images/g/osUAAOSwrilkmgXq/s-l1600.webp",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/3/31/latest/20211108122911/Car%C3%A1tula_de_Verde_Hoja.png",
+        "trailerUrl": "https://youtu.be/atg7ZtwFwGU?si=yb8SPK0MZ4AZux7Z",
+        "relations": [
+          {
+            "type": "remake",
+            "targetId": "2",
+            "label": "Remake de Pokémon Blue"
+          }
+        ]
       }
     ]
   },
@@ -143,55 +179,71 @@
         "id": "12",
         "rawgId": 25131,
         "rawgCollection": "diamond-pearl",
-        "cover":"https://m.media-amazon.com/images/M/MV5BYmM4NDA4OTAtOWE3MS00ZTllLTgwMDMtYjMyY2I0ODg5ZThkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/9/94/latest/20211108123315/Pok%C3%A9mon_Diamante.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BYmM4NDA4OTAtOWE3MS00ZTllLTgwMDMtYjMyY2I0ODg5ZThkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/9/94/latest/20211108123315/Pok%C3%A9mon_Diamante.png",
+        "trailerUrl": "https://youtu.be/t6aaQL73daw?si=GmG7cFpzGWDV72p9"
       },
       {
         "name": "Pearl",
         "id": "13",
         "rawgId": 25131,
         "rawgCollection": "diamond-pearl",
-        "cover":"https://m.media-amazon.com/images/M/MV5BYmI0ZjM3NWMtYTAyYy00OTI5LWE4NGYtNjQ5MDI0MzI1OTUyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/6/64/latest/20211108123252/Pok%C3%A9mon_Perla.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BYmI0ZjM3NWMtYTAyYy00OTI5LWE4NGYtNjQ5MDI0MzI1OTUyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/6/64/latest/20211108123252/Pok%C3%A9mon_Perla.png",
+        "trailerUrl": "https://youtu.be/t6aaQL73daw?si=GmG7cFpzGWDV72p9"
       },
       {
         "name": "Platinum",
         "id": "14",
         "rawgId": 25856,
         "rawgCollection": "platinum",
-        "cover":"https://m.media-amazon.com/images/M/MV5BNzJlNDZjMzctYTYyZS00YTlhLWJhMTAtZWIyOTQwNTlmNjY4XkEyXkFqcGc@._V1_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/f/f4/latest/20211108120853/Car%C3%A1tula_Pok%C3%A9mon_Platino_%28ESP%29.png",
-        "relation": {
-          "type": "enhanced",
-          "targetId": "12",
-          "label": "Versión extendida de Pokémon Diamond & Pearl"
-        }
+        "cover": "https://m.media-amazon.com/images/M/MV5BNzJlNDZjMzctYTYyZS00YTlhLWJhMTAtZWIyOTQwNTlmNjY4XkEyXkFqcGc@._V1_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/f/f4/latest/20211108120853/Car%C3%A1tula_Pok%C3%A9mon_Platino_%28ESP%29.png",
+        "trailerUrl": "https://youtu.be/RQS0BS0r5Kk?si=toW1z8Qr3bp74N9X",
+        "relations": [
+          {
+            "type": "enhanced",
+            "targetId": "12",
+            "label": "Versión extendida de Pokémon Diamond"
+          },
+          {
+            "type": "enhanced",
+            "targetId": "13",
+            "label": "Versión extendida de Pokémon Pearl"
+          }
+        ]
       },
       {
         "name": "HeartGold",
         "id": "15",
         "rawgId": 26316,
         "rawgCollection": "heartgold-soulsilver",
-        "cover":"https://m.media-amazon.com/images/M/MV5BMTEwOGQ5M2EtNGU4NS00YjlhLWE5MjAtYmI5ZDU3ZjFhNzM5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "relation": {
-          "type": "remake",
-          "targetId": "4",
-          "label": "Remake de Pokémon Gold"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/b/b4/latest/20221123235300/Pok%C3%A9mon_Edici%C3%B3n_Oro_HeartGold_caja_ES.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BMTEwOGQ5M2EtNGU4NS00YjlhLWE5MjAtYmI5ZDU3ZjFhNzM5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/b/b4/latest/20221123235300/Pok%C3%A9mon_Edici%C3%B3n_Oro_HeartGold_caja_ES.png",
+        "trailerUrl": "https://youtu.be/tI7RhRb3ZEw?si=YM-V39V5pv5tvQMc",
+        "relations": [
+          {
+            "type": "remake",
+            "targetId": "4",
+            "label": "Remake de Pokémon Gold"
+          }
+        ]
       },
       {
         "name": "SoulSilver",
         "id": "16",
         "rawgId": 26316,
         "rawgCollection": "heartgold-soulsilver",
-        "cover":"https://m.media-amazon.com/images/M/MV5BY2IwMDQxMGMtMzczOC00ZjJmLWEwZGMtMmVhN2JmNWFiYTc2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "relation": {
-          "type": "remake",
-          "targetId": "5",
-          "label": "Remake de Pokémon Silver"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/b/bb/latest/20211108121148/Pok%C3%A9mon_Edici%C3%B3n_Plata_SoulSilver_caja_ES.jpg"
+        "cover": "https://m.media-amazon.com/images/M/MV5BY2IwMDQxMGMtMzczOC00ZjJmLWEwZGMtMmVhN2JmNWFiYTc2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/b/bb/latest/20211108121148/Pok%C3%A9mon_Edici%C3%B3n_Plata_SoulSilver_caja_ES.jpg",
+        "trailerUrl": "https://youtu.be/tI7RhRb3ZEw?si=YM-V39V5pv5tvQMc",
+        "relations": [
+          {
+            "type": "remake",
+            "targetId": "5",
+            "label": "Remake de Pokémon Silver"
+          }
+        ]
       }
     ]
   },
@@ -205,42 +257,50 @@
         "id": "17",
         "rawgId": 330615,
         "rawgCollection": "black-white",
-        "cover":"https://m.media-amazon.com/images/M/MV5BNDJmM2IzM2YtZjJjYS00ZGE2LWFkZTctNzI3NjJlNmFkODJhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/9/94/latest/20260102105725/Pok%C3%A9mon_Edici%C3%B3n_Negra.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BNDJmM2IzM2YtZjJjYS00ZGE2LWFkZTctNzI3NjJlNmFkODJhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/9/94/latest/20260102105725/Pok%C3%A9mon_Edici%C3%B3n_Negra.png",
+        "trailerUrl": "https://youtu.be/Kpczvsv88XE?si=es2APQyXHPPr03XG"
       },
       {
         "name": "White",
         "id": "18",
         "rawgId": 330615,
         "rawgCollection": "black-white",
-        "cover":"https://m.media-amazon.com/images/M/MV5BZWFjNWE2NDgtYmY1NS00ZmU0LTlhYTYtOGMyZDkxNGUxMmY2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/9/99/latest/20260102105819/Pok%C3%A9mon_Edici%C3%B3n_Blanca.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BZWFjNWE2NDgtYmY1NS00ZmU0LTlhYTYtOGMyZDkxNGUxMmY2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/9/99/latest/20260102105819/Pok%C3%A9mon_Edici%C3%B3n_Blanca.png",
+        "trailerUrl": "https://youtu.be/Kpczvsv88XE?si=es2APQyXHPPr03XG"
       },
       {
         "name": "Black 2",
         "id": "21",
         "rawgId": 331454,
         "rawgCollection": "black2-white2",
-        "cover":"https://m.media-amazon.com/images/M/MV5BYWQzNjY0M2UtODFmZS00MGE0LWJmZjMtMzI1ZjhiZWU0YjE2XkEyXkFqcGc@._V1_QL75_UX1000.jpg",
-        "relation": {
-          "type": "sequel",
-          "targetId": "17",
-          "label": "Secuela directa de Pokémon Black"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/a/a4/latest/20140217225209/Box_Pok%C3%A9mon_Negro_2.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BYWQzNjY0M2UtODFmZS00MGE0LWJmZjMtMzI1ZjhiZWU0YjE2XkEyXkFqcGc@._V1_QL75_UX1000.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/a/a4/latest/20140217225209/Box_Pok%C3%A9mon_Negro_2.png",
+        "trailerUrl": "https://youtu.be/O1bfDpehbz4?si=Eh3JS6tVOrb81AAR",
+        "relations": [
+          {
+            "type": "sequel",
+            "targetId": "17",
+            "label": "Secuela directa de Pokémon Black"
+          }
+        ]
       },
       {
         "name": "White 2",
         "id": "22",
         "rawgId": 331454,
         "rawgCollection": "black2-white2",
-        "cover":"https://m.media-amazon.com/images/M/MV5BYmMyOTY2OWQtNWYwMy00ZjNmLWJhYTAtMWI5ZGNlYjYzMGVlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "relation": {
-          "type": "sequel",
-          "targetId": "18",
-          "label": "Secuela directa de Pokémon White"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/1/17/latest/20140218002530/Box_Pok%C3%A9mon_Blanco_2.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BYmMyOTY2OWQtNWYwMy00ZjNmLWJhYTAtMWI5ZGNlYjYzMGVlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/1/17/latest/20140218002530/Box_Pok%C3%A9mon_Blanco_2.png",
+        "trailerUrl": "https://youtu.be/O1bfDpehbz4?si=Eh3JS6tVOrb81AAR",
+        "relations": [
+          {
+            "type": "sequel",
+            "targetId": "18",
+            "label": "Secuela directa de Pokémon White"
+          }
+        ]
       }
     ]
   },
@@ -254,42 +314,50 @@
         "id": "23",
         "rawgId": 27312,
         "rawgCollection": "x-y",
-        "cover":"https://m.media-amazon.com/images/M/MV5BNGEwZTEzYTAtZTRmYS00Mzc0LTk5ZDAtMWEzOTBmMmQzMWUxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/8/81/latest/20130621162341/Pok%C3%A9mon_X_Car%C3%A1tula.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BNGEwZTEzYTAtZTRmYS00Mzc0LTk5ZDAtMWEzOTBmMmQzMWUxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/8/81/latest/20130621162341/Pok%C3%A9mon_X_Car%C3%A1tula.png",
+        "trailerUrl": "https://youtu.be/icjkBxxOmkw?si=bMDQkc6Hmn-FpCR3"
       },
       {
         "name": "Y",
         "id": "24",
         "rawgId": 27312,
         "rawgCollection": "x-y",
-        "cover":"https://m.media-amazon.com/images/M/MV5BZDdiZTEzNzQtMDRiYS00ZjQwLWEzZmEtOWRmZTdmY2JkMzY4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/6/6f/latest/20130621162348/Pok%C3%A9mon_Y_Car%C3%A1tula.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BZDdiZTEzNzQtMDRiYS00ZjQwLWEzZmEtOWRmZTdmY2JkMzY4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/6/6f/latest/20130621162348/Pok%C3%A9mon_Y_Car%C3%A1tula.png",
+        "trailerUrl": "https://youtu.be/icjkBxxOmkw?si=bMDQkc6Hmn-FpCR3"
       },
       {
         "name": "Omega Ruby",
         "id": "25",
         "rawgId": 23973,
         "rawgCollection": "omega-ruby-alpha-sapphire",
-        "cover":"https://m.media-amazon.com/images/M/MV5BYTczNjQwODMtMThkYy00MDhiLWEwZDEtYzFjZjIwNzNjMGViXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "relation": {
-          "type": "remake",
-          "targetId": "7",
-          "label": "Remake de Pokémon Ruby"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/5/5d/latest/20150827182103/Car%C3%A1tula_Pok%C3%A9mon_Rub%C3%AD_Omega.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BYTczNjQwODMtMThkYy00MDhiLWEwZDEtYzFjZjIwNzNjMGViXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/5/5d/latest/20150827182103/Car%C3%A1tula_Pok%C3%A9mon_Rub%C3%AD_Omega.png",
+        "trailerUrl": "https://youtu.be/sEdm7P4SgLg?si=VHLUx0athy1ow3rE",
+        "relations": [
+          {
+            "type": "remake",
+            "targetId": "7",
+            "label": "Remake de Pokémon Ruby"
+          }
+        ]
       },
       {
         "name": "Alpha Sapphire",
         "id": "26",
         "rawgId": 23973,
         "rawgCollection": "omega-ruby-alpha-sapphire",
-        "cover":"https://m.media-amazon.com/images/M/MV5BODZhMDZlN2MtNjk0YS00NGU3LTkxZDItMGI2YTAzNmUwZDc4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "relation": {
-          "type": "remake",
-          "targetId": "8",
-          "label": "Remake de Pokémon Sapphire"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/a/a6/latest/20150827181525/Car%C3%A1tula_Pok%C3%A9mon_Zafiro_Alfa.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BODZhMDZlN2MtNjk0YS00NGU3LTkxZDItMGI2YTAzNmUwZDc4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/a/a6/latest/20150827181525/Car%C3%A1tula_Pok%C3%A9mon_Zafiro_Alfa.png",
+        "trailerUrl": "https://youtu.be/sEdm7P4SgLg?si=VHLUx0athy1ow3rE",
+        "relations": [
+          {
+            "type": "remake",
+            "targetId": "8",
+            "label": "Remake de Pokémon Sapphire"
+          }
+        ]
       }
     ]
   },
@@ -303,42 +371,50 @@
         "id": "27",
         "rawgId": 23748,
         "rawgCollection": "sun-moon",
-        "cover":"https://m.media-amazon.com/images/M/MV5BYzY4MmY3MzAtZmRhOS00MWU3LWFkN2YtNjY3OTI2ZGNlYTg5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/9/9b/latest/20160906014708/Car%C3%A1tula_Pok%C3%A9mon_Sol.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BYzY4MmY3MzAtZmRhOS00MWU3LWFkN2YtNjY3OTI2ZGNlYTg5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/9/9b/latest/20160906014708/Car%C3%A1tula_Pok%C3%A9mon_Sol.png",
+        "trailerUrl": "https://youtu.be/Z6XVV-QRixQ?si=w_PZW0aFbTARj9vf"
       },
       {
         "name": "Moon",
         "id": "28",
         "rawgId": 23748,
         "rawgCollection": "sun-moon",
-        "cover":"https://m.media-amazon.com/images/M/MV5BZmNiNTFjZDAtODcyNy00ODMyLTliYWItYjAxZTIwM2Q2YzQ3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/7/73/latest/20160906014824/Car%C3%A1tula_Pok%C3%A9mon_Luna.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BZmNiNTFjZDAtODcyNy00ODMyLTliYWItYjAxZTIwM2Q2YzQ3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/7/73/latest/20160906014824/Car%C3%A1tula_Pok%C3%A9mon_Luna.png",
+        "trailerUrl": "https://youtu.be/Z6XVV-QRixQ?si=w_PZW0aFbTARj9vf"
       },
       {
         "name": "Ultra Sun",
         "id": "29",
         "rawgId": 27939,
         "rawgCollection": "ultra-sun-ultra-moon",
-        "cover":"https://m.media-amazon.com/images/M/MV5BYjdmNGZlYTItNmJjZi00ZDY0LTgyNDktNWU2YzhkYWRiZDVkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "relation": {
-          "type": "enhanced",
-          "targetId": "27",
-          "label": "Versión mejorada de Pokémon Sun"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/7/71/latest/20170823154238/Car%C3%A1tula_Pok%C3%A9mon_Ultrasol.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BYjdmNGZlYTItNmJjZi00ZDY0LTgyNDktNWU2YzhkYWRiZDVkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/7/71/latest/20170823154238/Car%C3%A1tula_Pok%C3%A9mon_Ultrasol.png",
+        "trailerUrl": "https://youtu.be/8ZCUeD3-pJU?si=fcNrzSZuDlqunBde",
+        "relations": [
+          {
+            "type": "enhanced",
+            "targetId": "27",
+            "label": "Versión mejorada de Pokémon Sun"
+          }
+        ]
       },
       {
         "name": "Ultra Moon",
         "id": "30",
         "rawgId": 27939,
         "rawgCollection": "ultra-sun-ultra-moon",
-        "cover":"https://m.media-amazon.com/images/M/MV5BNTg5Y2IwZGMtYzZmMC00ZTdlLTg1MDctNjNiNWE3ODdlNjYyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "relation": {
-          "type": "enhanced",
-          "targetId": "28",
-          "label": "Versión mejorada de Pokémon Moon"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/f/fb/latest/20170823154054/Car%C3%A1tula_Pok%C3%A9mon_Ultraluna.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BNTg5Y2IwZGMtYzZmMC00ZTdlLTg1MDctNjNiNWE3ODdlNjYyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/f/fb/latest/20170823154054/Car%C3%A1tula_Pok%C3%A9mon_Ultraluna.png",
+        "trailerUrl": "https://youtu.be/8ZCUeD3-pJU?si=fcNrzSZuDlqunBde",
+        "relations": [
+          {
+            "type": "enhanced",
+            "targetId": "28",
+            "label": "Versión mejorada de Pokémon Moon"
+          }
+        ]
       }
     ]
   },
@@ -352,55 +428,66 @@
         "id": "33",
         "rawgId": 282825,
         "rawgCollection": "sword-shield",
-        "cover":"https://m.media-amazon.com/images/M/MV5BYjMwMDFkMDEtZGUyNC00NjBhLTk5YTItZThkMTAyNjczYThiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/2/21/latest/20190605134318/Car%C3%A1tula_Pok%C3%A9mon_Espada.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BYjMwMDFkMDEtZGUyNC00NjBhLTk5YTItZThkMTAyNjczYThiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/2/21/latest/20190605134318/Car%C3%A1tula_Pok%C3%A9mon_Espada.png",
+        "trailerUrl": "https://youtu.be/B9_h7xNhPBE?si=HsRa4WQ4UnlByliv"
       },
       {
         "name": "Shield",
         "id": "34",
         "rawgId": 282825,
         "rawgCollection": "sword-shield",
-        "cover":"https://m.media-amazon.com/images/M/MV5BNzc4ZjM2ZjktZDIzMS00NTAwLWJhMTQtZDZmZGQzZjg0MzM3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/0/08/latest/20190605134155/Car%C3%A1tula_Pok%C3%A9mon_Escudo.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BNzc4ZjM2ZjktZDIzMS00NTAwLWJhMTQtZDZmZGQzZjg0MzM3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/0/08/latest/20190605134155/Car%C3%A1tula_Pok%C3%A9mon_Escudo.png",
+        "trailerUrl": "https://youtu.be/B9_h7xNhPBE?si=HsRa4WQ4UnlByliv"
       },
       {
         "name": "Brilliant Diamond",
         "id": "37",
         "rawgId": 564763,
         "rawgCollection": "brilliant-diamond-shining-pearl",
-        "cover":"https://m.media-amazon.com/images/M/MV5BNjE0MTU4ZmQtOTUxMS00N2VjLTlhYWUtYzEwY2NmN2ZhMTg5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "relation": {
-          "type": "remake",
-          "targetId": "12",
-          "label": "Remake de Pokémon Diamond"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/1/12/latest/20210526132424/Car%C3%A1tula_Pok%C3%A9mon_Diamante_Brillante.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BNjE0MTU4ZmQtOTUxMS00N2VjLTlhYWUtYzEwY2NmN2ZhMTg5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/1/12/latest/20210526132424/Car%C3%A1tula_Pok%C3%A9mon_Diamante_Brillante.png",
+        "trailerUrl": "https://youtu.be/F3x7LOrQG98?si=WwBsDqsf82JIdnl1",
+        "relations": [
+          {
+            "type": "remake",
+            "targetId": "12",
+            "label": "Remake de Pokémon Diamond"
+          }
+        ]
       },
       {
         "name": "Shining Pearl",
         "id": "38",
         "rawgId": 564763,
         "rawgCollection": "brilliant-diamond-shining-pearl",
-        "cover":"https://m.media-amazon.com/images/M/MV5BNDhlY2Q5NmMtNTAxNC00MWJhLTk3YjUtMTYxOTNmMTA2YTdkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "relation": {
-          "type": "remake",
-          "targetId": "13",
-          "label": "Remake de Pokémon Pearl"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/1/13/latest/20210526132407/Car%C3%A1tula_Pok%C3%A9mon_Perla_Reluciente.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BNDhlY2Q5NmMtNTAxNC00MWJhLTk3YjUtMTYxOTNmMTA2YTdkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/1/13/latest/20210526132407/Car%C3%A1tula_Pok%C3%A9mon_Perla_Reluciente.png",
+        "trailerUrl": "https://youtu.be/F3x7LOrQG98?si=WwBsDqsf82JIdnl1",
+        "relations": [
+          {
+            "type": "remake",
+            "targetId": "13",
+            "label": "Remake de Pokémon Pearl"
+          }
+        ]
       },
       {
         "name": "Legends: Arceus",
         "id": "39",
         "rawgId": 564761,
         "rawgCollection": "legends-arceus",
-        "cover":"https://m.media-amazon.com/images/M/MV5BMDQ3ZjQyNjMtYjI0Yi00MDQxLTk0MzQtZjBiYmY0MWYyY2UyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "relation": {
-          "type": "spin-off",
-          "targetId": "12",
-          "label": "Spin-off ambientado en la región de Sinnoh"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/d/d7/latest/20210526132431/Car%C3%A1tula_Leyendas_Pok%C3%A9mon_Arceus.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BMDQ3ZjQyNjMtYjI0Yi00MDQxLTk0MzQtZjBiYmY0MWYyY2UyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/d/d7/latest/20210526132431/Car%C3%A1tula_Leyendas_Pok%C3%A9mon_Arceus.png",
+        "trailerUrl": "https://youtu.be/9RbjFjYgNNg?si=sroH0lqkqVHmfBuc",
+        "relations": [
+          {
+            "type": "spin-off",
+            "targetId": "12",
+            "label": "Spin-off ambientado en la región de Sinnoh"
+          }
+        ]
       }
     ]
   },
@@ -414,29 +501,32 @@
         "id": "40",
         "rawgId": 747505,
         "rawgCollection": "scarlet-violet",
-        "cover":"https://m.media-amazon.com/images/M/MV5BMmRjZmE0NmMtNjgxZC00OTE4LWI4ZjctMWYyNDVjNzA5ODUwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/d/d5/latest/20220601144723/Car%C3%A1tula_Pok%C3%A9mon_Escarlata.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BMmRjZmE0NmMtNjgxZC00OTE4LWI4ZjctMWYyNDVjNzA5ODUwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/d/d5/latest/20220601144723/Car%C3%A1tula_Pok%C3%A9mon_Escarlata.png"
       },
       {
         "name": "Violet",
         "id": "41",
         "rawgId": 747505,
         "rawgCollection": "scarlet-violet",
-        "cover":"https://m.media-amazon.com/images/M/MV5BZmU1NzA4MjYtOTU2YS00Y2E4LTk1ZTItMWEyYTAyZTczMDQ5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/3/31/latest/20220601144858/Car%C3%A1tula_Pok%C3%A9mon_P%C3%BArpura.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BZmU1NzA4MjYtOTU2YS00Y2E4LTk1ZTItMWEyYTAyZTczMDQ5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/3/31/latest/20220601144858/Car%C3%A1tula_Pok%C3%A9mon_P%C3%BArpura.png"
       },
       {
         "name": "legends-za",
         "id": "47",
         "rawgId": 1000197,
         "rawgCollection": "legends-za",
-        "cover":"https://m.media-amazon.com/images/M/MV5BZjNiZTc4ZmQtOGI3OS00MzZmLTk1ZTYtMzNmMWQwOWVjODc2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "relation": {
-          "type": "spin-off",
-          "targetId": "23",
-          "label": "Spin-off relacionado con Pokémon X & Y"
-        },
-        "frontCover":"https://images.wikidexcdn.net/mwuploads/wikidex/e/e9/latest/20250528133349/Car%C3%A1tula_Leyendas_Pok%C3%A9mon_Z-A_%28Switch%29.png"
+        "cover": "https://m.media-amazon.com/images/M/MV5BZjNiZTc4ZmQtOGI3OS00MzZmLTk1ZTYtMzNmMWQwOWVjODc2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "frontCover": "https://images.wikidexcdn.net/mwuploads/wikidex/e/e9/latest/20250528133349/Car%C3%A1tula_Leyendas_Pok%C3%A9mon_Z-A_%28Switch%29.png",
+        "relations": [
+          {
+            "type": "spin-off",
+            "targetId": "23",
+            "label": "Spin-off relacionado con Pokémon X & Y"
+          }
+        ],
+        "trailerUrl": "https://youtu.be/mdIx8oTemB0?si=BCqAhTISq2ilBmWk"
       }
     ]
   }

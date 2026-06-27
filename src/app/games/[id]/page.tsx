@@ -12,7 +12,6 @@ import {
 } from "@/lib/pokemon-games/enrich-games";
 import {
   fetchRawgGame,
-  fetchRawgMovies,
   fetchRawgScreenshots,
 } from "@/services/rawg";
 
@@ -44,10 +43,9 @@ export default async function GameDetailPage({ params }: GameDetailPageProps) {
 
   const { game: localGame, generation } = found;
 
-  const [rawgGame, screenshots, movies] = await Promise.all([
+  const [rawgGame, screenshots] = await Promise.all([
     fetchRawgGame(localGame.rawgId),
     fetchRawgScreenshots(localGame.rawgId),
-    fetchRawgMovies(localGame.rawgId),
   ]);
 
   const allEnriched = enrichGames(new Map());
@@ -56,7 +54,6 @@ export default async function GameDetailPage({ params }: GameDetailPageProps) {
     generation,
     rawgGame,
     screenshots,
-    movies,
     allEnriched,
   );
 

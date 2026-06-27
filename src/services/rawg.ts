@@ -1,6 +1,6 @@
 import { unstable_cache } from "next/cache";
 import { RAWG_CACHE_REVALIDATE } from "@/lib/pokemon-games/constants";
-import type { RawgGameDetails, RawgMovie, RawgScreenshot } from "@/types/pokemon-games";
+import type { RawgGameDetails, RawgScreenshot } from "@/types/pokemon-games";
 
 const RAWG_BASE_URL = "https://api.rawg.io/api";
 
@@ -14,7 +14,8 @@ function getApiKey(): string {
 
 async function fetchFromRawg<T>(path: string): Promise<T | null> {
   try {
-    const res = await fetch(`${RAWG_BASE_URL}${path}`, {
+    const url = path.startsWith("http") ? path : `${RAWG_BASE_URL}${path}`;
+    const res = await fetch(url, {
       next: { revalidate: RAWG_CACHE_REVALIDATE },
     });
 
@@ -30,45 +31,47 @@ async function fetchFromRawg<T>(path: string): Promise<T | null> {
   }
 }
 
-const getCachedRawgGame = unstable_cache(
-  async (gameId: number): Promise<RawgGameDetails | null> =>
-    fetchFromRawg<RawgGameDetails>(`/games/${gameId}?key=${getApiKey()}`),
-  ["rawg-game"],
-  { revalidate: RAWG_CACHE_REVALIDATE, tags: ["rawg"] },
-);
+async function fetchRawgGameUncached(gameId: number): Promise<RawgGameDetails | null> {
+  return fetchFromRawg<RawgGameDetails>(`/games/${gameId}?key=${getApiKey()}`);
+}
 
-const getCachedRawgScreenshots = unstable_cache(
-  async (gameId: number): Promise<RawgScreenshot[]> => {
-    const data = await fetchFromRawg<{ results: RawgScreenshot[] }>(
-      `/games/${gameId}/screenshots?key=${getApiKey()}`,
-    );
-    return data?.results ?? [];
-  },
-  ["rawg-screenshots"],
-  { revalidate: RAWG_CACHE_REVALIDATE, tags: ["rawg"] },
-);
+async function fetchAllScreenshotsUncached(gameId: number): Promise<RawgScreenshot[]> {
+  const screenshots: RawgScreenshot[] = [];
+  let nextUrl: string | null =
+    `/games/${gameId}/screenshots?key=${getApiKey()}&page_size=40`;
 
-const getCachedRawgMovies = unstable_cache(
-  async (gameId: number): Promise<RawgMovie[]> => {
-    const data = await fetchFromRawg<{ results: RawgMovie[] }>(
-      `/games/${gameId}/movies?key=${getApiKey()}`,
-    );
-    return data?.results ?? [];
-  },
-  ["rawg-movies"],
-  { revalidate: RAWG_CACHE_REVALIDATE, tags: ["rawg"] },
-);
+  while (nextUrl) {
+    const page: {
+      results: RawgScreenshot[];
+      next: string | null;
+    } | null = await fetchFromRawg(nextUrl);
+
+    if (!page?.results?.length) break;
+
+    screenshots.push(...page.results);
+    nextUrl = page.next;
+  }
+
+  return screenshots;
+}
 
 export async function fetchRawgGame(gameId: number): Promise<RawgGameDetails | null> {
-  return getCachedRawgGame(gameId);
+  return unstable_cache(
+    () => fetchRawgGameUncached(gameId),
+    ["rawg-game", String(gameId)],
+    { revalidate: RAWG_CACHE_REVALIDATE, tags: ["rawg", `rawg-game-${gameId}`] },
+  )();
 }
 
 export async function fetchRawgScreenshots(gameId: number): Promise<RawgScreenshot[]> {
-  return getCachedRawgScreenshots(gameId);
-}
-
-export async function fetchRawgMovies(gameId: number): Promise<RawgMovie[]> {
-  return getCachedRawgMovies(gameId);
+  return unstable_cache(
+    () => fetchAllScreenshotsUncached(gameId),
+    ["rawg-screenshots", String(gameId)],
+    {
+      revalidate: RAWG_CACHE_REVALIDATE,
+      tags: ["rawg", `rawg-screenshots-${gameId}`],
+    },
+  )();
 }
 
 export async function fetchRawgGamesByIds(

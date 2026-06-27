@@ -8,7 +8,6 @@ import {
 } from "@/lib/pokemon-games/enrich-games";
 import {
   filterGames,
-  hasActiveFilterTypes,
   hasActiveFilterValues,
 } from "@/lib/pokemon-games/filters";
 import type {
@@ -18,8 +17,7 @@ import type {
   FilterType,
 } from "@/types/pokemon-games";
 import GameCard from "./GameCard";
-import GamesFilterPanel from "./GamesFilterPanel";
-import GamesFilterToggle from "./GamesFilterToggle";
+import GamesFilterCarousel from "./GamesFilterCarousel";
 import GenerationSection from "./GenerationSection";
 
 const INITIAL_ENABLED: EnabledFilterTypes = {
@@ -48,7 +46,6 @@ export default function GamesPageContent({ games }: GamesPageContentProps) {
   const regions = useMemo(() => getUniqueRegions(games), [games]);
   const platforms = useMemo(() => getUniquePlatforms(games), [games]);
 
-  const isFilterMode = hasActiveFilterTypes(enabledTypes);
   const showFilteredGrid = hasActiveFilterValues(enabledTypes, filters);
 
   const filteredGames = useMemo(
@@ -83,28 +80,17 @@ export default function GamesPageContent({ games }: GamesPageContentProps) {
 
   return (
     <div className="space-y-8">
-      <header className="space-y-2">
-        <h1 className="text-2xl font-black tracking-wide text-yellow-400 sm:text-3xl">
-          Juegos Pokémon
-        </h1>
-        <p className="max-w-2xl text-sm text-stone-400 sm:text-base">
-          Explora la saga principal organizada por generación. Activa los filtros
-          cuando quieras buscar por región, plataforma o lanzamientos recientes.
-        </p>
-      </header>
+      
 
-      <GamesFilterToggle enabled={enabledTypes} onToggle={handleToggleFilterType} />
-
-      {isFilterMode && (
-        <GamesFilterPanel
-          enabled={enabledTypes}
-          filters={filters}
-          regions={regions}
-          platforms={platforms}
-          onChange={setFilters}
-          onClear={handleClearFilters}
-        />
-      )}
+      <GamesFilterCarousel
+        enabled={enabledTypes}
+        filters={filters}
+        regions={regions}
+        platforms={platforms}
+        onToggle={handleToggleFilterType}
+        onChange={setFilters}
+        onClear={handleClearFilters}
+      />
 
       {filteredGames.length === 0 ? (
         <p className="rounded-2xl border border-white/10 bg-white/5 py-12 text-center text-stone-400">
@@ -123,7 +109,7 @@ export default function GamesPageContent({ games }: GamesPageContentProps) {
           </div>
         </section>
       ) : (
-        <div className="space-y-12">
+        <div className="space-y-12 mx-auto max-w-7xl px-6  sm:px-10 md:px-12 lg:px-14">
           {generationsWithGames.map(({ generation, games: genGames }) => (
             <GenerationSection
               key={generation.id}

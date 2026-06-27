@@ -32,21 +32,60 @@ body {
   cursor: pointer;
 }
 
-.moves-scroll::-webkit-scrollbar {
-  width: 6px;
+.moves-scroll,
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
-.moves-scroll::-webkit-scrollbar-track {
+.moves-scroll::-webkit-scrollbar,
+.thin-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.moves-scroll::-webkit-scrollbar-track,
+.thin-scroll::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.moves-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.2);
+.moves-scroll::-webkit-scrollbar-thumb,
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
 }
 
-.moves-scroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,0.4);
+.moves-scroll::-webkit-scrollbar-thumb:hover,
+.thin-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.thin-scroll::-webkit-scrollbar-button,
+.thin-scroll::-webkit-scrollbar-button:single-button,
+.thin-scroll::-webkit-scrollbar-button:single-button:horizontal:decrement,
+.thin-scroll::-webkit-scrollbar-button:single-button:horizontal:increment,
+.thin-scroll::-webkit-scrollbar-button:single-button:vertical:decrement,
+.thin-scroll::-webkit-scrollbar-button:single-button:vertical:increment,
+.thin-scroll::-webkit-scrollbar-button:start:decrement,
+.thin-scroll::-webkit-scrollbar-button:end:increment,
+.thin-scroll::-webkit-scrollbar-button:start:increment,
+.thin-scroll::-webkit-scrollbar-button:end:decrement {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.thin-scroll::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 

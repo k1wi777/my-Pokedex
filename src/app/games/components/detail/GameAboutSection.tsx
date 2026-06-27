@@ -13,7 +13,7 @@ export default function GameAboutSection({ game }: GameAboutSectionProps) {
     <section>
       <SectionHeading>Información general</SectionHeading>
 
-      <p className="max-w-3xl text-sm leading-7 text-stone-300 sm:text-[15px]">
+      <p className="w-full text-sm leading-7 text-stone-300 sm:text-[15px]">
         {game.description}
       </p>
 

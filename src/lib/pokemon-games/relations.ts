@@ -19,6 +19,18 @@ export function getRelationTag(type: GameRelation["type"]): string {
   return RELATION_TAGS[type];
 }
 
+export function normalizeRelations(
+  game: PokemonGameLocal & { relation?: GameRelation },
+): GameRelation[] {
+  if (game.relations?.length) return game.relations;
+  if (game.relation) return [game.relation];
+  return [];
+}
+
+function relationTargetsGame(relation: GameRelation, gameId: string): boolean {
+  return relation.targetId === gameId;
+}
+
 export function getLinkedGames(
   gameId: string,
   localGames: PokemonGameLocal[],
@@ -27,31 +39,44 @@ export function getLinkedGames(
   const enrichedMap = new Map(enrichedGames.map((g) => [g.id, g]));
   const local = localGames.find((g) => g.id === gameId);
   const links: LinkedGameEntry[] = [];
+  const seen = new Set<string>();
 
-  if (local?.relation) {
-    const target = enrichedMap.get(local.relation.targetId);
-    if (target) {
-      links.push({
-        game: target,
-        label: local.relation.label,
-        tag: getRelationTag(local.relation.type),
-        direction: "forward",
-      });
+  const addLink = (entry: LinkedGameEntry) => {
+    const key = `${entry.game.id}-${entry.label}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    links.push(entry);
+  };
+
+  if (local) {
+    for (const relation of normalizeRelations(local)) {
+      const target = enrichedMap.get(relation.targetId);
+      if (target) {
+        addLink({
+          game: target,
+          label: relation.label,
+          tag: getRelationTag(relation.type),
+          direction: "forward",
+        });
+      }
     }
   }
 
   for (const other of localGames) {
-    if (!other.relation || other.relation.targetId !== gameId || other.id === gameId) {
-      continue;
-    }
-    const enriched = enrichedMap.get(other.id);
-    if (enriched) {
-      links.push({
-        game: enriched,
-        label: `${enriched.displayName} — ${REVERSE_LABELS[other.relation.type]}`,
-        tag: getRelationTag(other.relation.type),
-        direction: "reverse",
-      });
+    if (other.id === gameId) continue;
+
+    for (const relation of normalizeRelations(other)) {
+      if (!relationTargetsGame(relation, gameId)) continue;
+
+      const enriched = enrichedMap.get(other.id);
+      if (enriched) {
+        addLink({
+          game: enriched,
+          label: `${enriched.displayName} — ${REVERSE_LABELS[relation.type]}`,
+          tag: getRelationTag(relation.type),
+          direction: "reverse",
+        });
+      }
     }
   }
 

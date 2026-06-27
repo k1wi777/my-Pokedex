@@ -75,6 +75,16 @@ export default function Footer() {
                 Generador de fuentes
               </a>
             </li>
+            <li>
+              Algunos iconos cortesía de{" "}
+              <a
+                href="https://commons.wikimedia.org/wiki/Main_Page"
+                target="_blank"
+                className="hover:text-yellow-400 transition-colors"
+              >
+                Wikimedia Commons
+              </a>
+            </li>
           </ul>
         </div>
 

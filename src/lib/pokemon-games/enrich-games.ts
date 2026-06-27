@@ -1,6 +1,10 @@
 import pokemonGamesData from "@/data/pokemon-games.json";
 import { COLLECTION_LABELS, DEFAULT_ESRB_RATING } from "@/lib/pokemon-games/constants";
-import { getLinkedGames } from "@/lib/pokemon-games/relations";
+import { getLinkedGames, normalizeRelations } from "@/lib/pokemon-games/relations";
+import {
+  getYoutubeThumbnail,
+  parseYoutubeId,
+} from "@/lib/pokemon-games/youtube";
 import type {
   EnrichedPokemonGame,
   GameDetailViewModel,
@@ -8,7 +12,6 @@ import type {
   PokemonGameLocal,
   PokemonGeneration,
   RawgGameDetails,
-  RawgMovie,
   RawgScreenshot,
 } from "@/types/pokemon-games";
 
@@ -51,7 +54,7 @@ function mapLocalGame(
     publishers: rawgGame?.publishers?.map((p) => p.name) ?? [],
     playtime: rawgGame?.playtime ? rawgGame.playtime : null,
     esrbRating: rawgGame?.esrb_rating?.name ?? DEFAULT_ESRB_RATING,
-    relation: game.relation,
+    relations: normalizeRelations(game),
   };
 }
 
@@ -119,7 +122,6 @@ function resolveBannerImage(
 }
 
 export function buildMediaItems(
-  movies: RawgMovie[],
   screenshots: RawgScreenshot[],
   rawgGame: RawgGameDetails | null,
   local: PokemonGameLocal,
@@ -127,36 +129,36 @@ export function buildMediaItems(
 ): GameMediaItem[] {
   const items: GameMediaItem[] = [];
 
-  for (const movie of movies) {
-    const videoUrl = movie.data.max ?? movie.data["480"];
-    if (videoUrl) {
+  if (local.trailerUrl) {
+    const youtubeId = parseYoutubeId(local.trailerUrl);
+    if (youtubeId) {
+      items.push({
+        type: "youtube",
+        src: local.trailerUrl,
+        youtubeId,
+        preview: getYoutubeThumbnail(youtubeId),
+        label: "Tráiler oficial",
+      });
+    } else {
       items.push({
         type: "video",
-        src: videoUrl,
-        preview: movie.preview || fallbackCover,
-        label: movie.name || "Tráiler",
+        src: local.trailerUrl,
+        preview: fallbackCover,
+        label: "Tráiler oficial",
       });
     }
   }
 
-  if (local.trailerUrl) {
-    items.push({
-      type: "video",
-      src: local.trailerUrl,
-      preview: fallbackCover,
-      label: "Tráiler oficial",
-    });
-  }
-
   const imageSources: string[] = [];
+
+  if (rawgGame?.background_image) {
+    imageSources.push(rawgGame.background_image);
+  }
 
   for (const shot of screenshots) {
     imageSources.push(shot.image);
   }
 
-  if (rawgGame?.background_image) {
-    imageSources.push(rawgGame.background_image);
-  }
   if (rawgGame?.background_image_additional) {
     imageSources.push(rawgGame.background_image_additional);
   }
@@ -182,7 +184,6 @@ export function buildGameDetail(
   generation: PokemonGeneration,
   rawgGame: RawgGameDetails | null,
   screenshots: RawgScreenshot[],
-  movies: RawgMovie[],
   allEnriched: EnrichedPokemonGame[],
 ): GameDetailViewModel {
   const base = mapLocalGame(local, generation, rawgGame ?? undefined);
@@ -195,7 +196,7 @@ export function buildGameDetail(
       : DEFAULT_DESCRIPTION,
     officialSite: rawgGame?.website || null,
     bannerImage: resolveBannerImage(rawgGame, local.cover),
-    mediaItems: buildMediaItems(movies, screenshots, rawgGame, local, local.cover),
+    mediaItems: buildMediaItems(screenshots, rawgGame, local, local.cover),
     collectionLabel:
       COLLECTION_LABELS[local.rawgCollection] ?? local.rawgCollection,
     collectionGames: getCollectionGames(

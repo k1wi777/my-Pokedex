@@ -22,8 +22,8 @@ export default async function GamesPage() {
   return (
     <>
       <GamesPageBackground />
-      <div className="relative min-h-screen px-6 py-8 sm:px-10 md:px-12 lg:px-14">
-        <div className="mx-auto max-w-7xl">
+      <div className="relative min-h-screen pb-8 ">
+        <div className="">
           <GamesPageContent games={games} />
         </div>
       </div>

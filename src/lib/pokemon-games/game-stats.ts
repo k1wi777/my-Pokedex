@@ -61,7 +61,7 @@ export function buildGameQuickStats(game: EnrichedPokemonGame): GameQuickStat[] 
     },
     {
       label: "Clasificación",
-      value: game.esrbRating,
+      value: game.esrbRating === "Rating Pending" ? "Sin clasificar" : game.esrbRating,
     },
     playtimeLabel
       ? { label: "Duración", value: playtimeLabel }

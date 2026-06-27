@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { CSSProperties } from "react";
 import {
   formatPlatforms,
@@ -38,6 +39,7 @@ export default function GameCard({ game }: GameCardProps) {
   const quickStats = buildGameQuickStats(game);
 
   return (
+    <Link href={`/games/${game.id}`} className="block">
     <article className="group relative aspect-[2/3] w-full overflow-hidden rounded-xl">
       <Image
         src={game.cover}
@@ -95,5 +97,6 @@ export default function GameCard({ game }: GameCardProps) {
         </div>
       </div>
     </article>
+    </Link>
   );
 }

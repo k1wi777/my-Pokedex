@@ -1,9 +1,18 @@
+export interface GameRelation {
+  type: "remake" | "enhanced" | "sequel" | "spin-off";
+  targetId: string;
+  label: string;
+}
+
 export interface PokemonGameLocal {
   name: string;
   id: string;
   rawgId: number;
   rawgCollection: string;
   cover: string;
+  frontCover?: string;
+  trailerUrl?: string;
+  relation?: GameRelation;
 }
 
 export interface PokemonGeneration {
@@ -27,6 +36,23 @@ export interface RawgNamedEntity {
   slug: string;
 }
 
+export interface RawgScreenshot {
+  id: number;
+  image: string;
+  width: number;
+  height: number;
+}
+
+export interface RawgMovie {
+  id: number;
+  name: string;
+  preview: string;
+  data: {
+    max?: string;
+    "480"?: string;
+  };
+}
+
 export interface RawgGameDetails {
   id: number;
   name: string;
@@ -38,8 +64,12 @@ export interface RawgGameDetails {
   playtime: number;
   genres: RawgNamedEntity[];
   developers: RawgNamedEntity[];
+  publishers: RawgNamedEntity[];
   esrb_rating: RawgNamedEntity | null;
   background_image: string | null;
+  background_image_additional: string | null;
+  description: string;
+  website: string;
 }
 
 export interface EnrichedPokemonGame {
@@ -47,6 +77,7 @@ export interface EnrichedPokemonGame {
   name: string;
   displayName: string;
   cover: string;
+  frontCover: string;
   rawgId: number;
   rawgCollection: string;
   generationId: number;
@@ -59,8 +90,34 @@ export interface EnrichedPokemonGame {
   metacritic: number | null;
   genres: string[];
   developers: string[];
+  publishers: string[];
   playtime: number | null;
   esrbRating: string;
+  relation?: GameRelation;
+}
+
+export interface GameMediaItem {
+  type: "image" | "video";
+  src: string;
+  preview?: string;
+  label?: string;
+}
+
+export interface LinkedGameEntry {
+  game: EnrichedPokemonGame;
+  label: string;
+  tag: string;
+  direction: "forward" | "reverse";
+}
+
+export interface GameDetailViewModel extends EnrichedPokemonGame {
+  description: string;
+  officialSite: string | null;
+  bannerImage: string;
+  mediaItems: GameMediaItem[];
+  collectionLabel: string;
+  collectionGames: EnrichedPokemonGame[];
+  linkedGames: LinkedGameEntry[];
 }
 
 export type FilterType = "region" | "platform" | "search" | "recent";

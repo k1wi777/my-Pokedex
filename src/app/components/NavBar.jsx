@@ -42,16 +42,16 @@ export default function NavBar() {
           </li>
 
           <li>
+            <Link href="/games" className={linkStyle("/games")}>
+              Juegos
+            </Link>
+          </li>
+          <li>
             <Link href="/pokemons" className={linkStyle("/pokemons")}>
               Pokédex
             </Link>
           </li>
 
-          <li>
-            <Link href="/games" className={linkStyle("/games")}>
-              Juegos
-            </Link>
-          </li>
         </ul>
 
         {/* Desktop GitHub */}

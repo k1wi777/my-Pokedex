@@ -1,4 +1,6 @@
-import type { RawgGameDetails } from "@/types/pokemon-games";
+import { unstable_cache } from "next/cache";
+import { RAWG_CACHE_REVALIDATE } from "@/lib/pokemon-games/constants";
+import type { RawgGameDetails, RawgMovie, RawgScreenshot } from "@/types/pokemon-games";
 
 const RAWG_BASE_URL = "https://api.rawg.io/api";
 
@@ -10,22 +12,63 @@ function getApiKey(): string {
   return key;
 }
 
-export async function fetchRawgGame(gameId: number): Promise<RawgGameDetails | null> {
+async function fetchFromRawg<T>(path: string): Promise<T | null> {
   try {
-    const res = await fetch(`${RAWG_BASE_URL}/games/${gameId}?key=${getApiKey()}`, {
-      next: { revalidate: 60 * 60 * 24 },
+    const res = await fetch(`${RAWG_BASE_URL}${path}`, {
+      next: { revalidate: RAWG_CACHE_REVALIDATE },
     });
 
     if (!res.ok) {
-      console.error(`RAWG fetch failed for game ${gameId}: ${res.status}`);
+      console.error(`RAWG fetch failed: ${path} (${res.status})`);
       return null;
     }
 
-    return (await res.json()) as RawgGameDetails;
+    return (await res.json()) as T;
   } catch (error) {
-    console.error(`RAWG fetch error for game ${gameId}:`, error);
+    console.error(`RAWG fetch error: ${path}`, error);
     return null;
   }
+}
+
+const getCachedRawgGame = unstable_cache(
+  async (gameId: number): Promise<RawgGameDetails | null> =>
+    fetchFromRawg<RawgGameDetails>(`/games/${gameId}?key=${getApiKey()}`),
+  ["rawg-game"],
+  { revalidate: RAWG_CACHE_REVALIDATE, tags: ["rawg"] },
+);
+
+const getCachedRawgScreenshots = unstable_cache(
+  async (gameId: number): Promise<RawgScreenshot[]> => {
+    const data = await fetchFromRawg<{ results: RawgScreenshot[] }>(
+      `/games/${gameId}/screenshots?key=${getApiKey()}`,
+    );
+    return data?.results ?? [];
+  },
+  ["rawg-screenshots"],
+  { revalidate: RAWG_CACHE_REVALIDATE, tags: ["rawg"] },
+);
+
+const getCachedRawgMovies = unstable_cache(
+  async (gameId: number): Promise<RawgMovie[]> => {
+    const data = await fetchFromRawg<{ results: RawgMovie[] }>(
+      `/games/${gameId}/movies?key=${getApiKey()}`,
+    );
+    return data?.results ?? [];
+  },
+  ["rawg-movies"],
+  { revalidate: RAWG_CACHE_REVALIDATE, tags: ["rawg"] },
+);
+
+export async function fetchRawgGame(gameId: number): Promise<RawgGameDetails | null> {
+  return getCachedRawgGame(gameId);
+}
+
+export async function fetchRawgScreenshots(gameId: number): Promise<RawgScreenshot[]> {
+  return getCachedRawgScreenshots(gameId);
+}
+
+export async function fetchRawgMovies(gameId: number): Promise<RawgMovie[]> {
+  return getCachedRawgMovies(gameId);
 }
 
 export async function fetchRawgGamesByIds(

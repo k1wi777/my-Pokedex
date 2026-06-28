@@ -1,7 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import CarouselNavButton from "@/app/components/CarouselNavButton";
 import { GAME_FILTER_ASSETS } from "@/data/game-filter-assets";
 import { RECENT_YEARS_THRESHOLD } from "@/lib/pokemon-games/constants";
@@ -14,7 +20,7 @@ import SearchStyleDropdown from "./SearchStyleDropdown";
 
 const FILTER_TYPES: FilterType[] = ["region", "platform", "search", "recent"];
 const COLLAPSED_WIDTH = 152;
-const SCROLL_SPEED = 32;
+const SCROLL_SPEED = 31;
 
 interface GamesFilterCarouselProps {
   enabled: EnabledFilterTypes;
@@ -62,11 +68,11 @@ function FilterPanel({
   const [imageFailed, setImageFailed] = useState(false);
 
   const panelClass = `
-    group/panel relative h-full overflow-hidden rounded-lg text-left
+    group/panel relative h-full overflow-hidden  text-left
     transition-all duration-500 ease-out
     ${
       expanded
-        ? "min-w-0 flex-[3] cursor-default"
+        ? "w-[60%] shrink-0 cursor-default border-2 border-amber-300"
         : "w-[100px] shrink-0 cursor-pointer hover:brightness-110 sm:w-[120px] md:w-[25%] lg:w-[25%]"
     }
     ${dimmed ? "opacity-55" : "opacity-100"}
@@ -74,14 +80,14 @@ function FilterPanel({
 
   const content = (
     <>
-      <div className="absolute inset-0 bg-gradient-to-br from-stone-800 via-stone-900 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-br from-stone-800 via-stone-900 to-black " />
       {!imageFailed && (
         <Image
           src={asset.image}
           alt=""
           fill
-          sizes={expanded ? "60vw" : "120px"}
-          className="object-cover transition-transform duration-700 group-hover/panel:scale-105"
+          sizes={"60vw"}
+          className="object-cover transition-transform duration-700 group-hover/panel:scale-105 group-hover/panel:-translate-x-5"
           onError={() => setImageFailed(true)}
         />
       )}
@@ -129,12 +135,13 @@ function FilterPanel({
     </>
   );
 
-  if (expanded) {
-    return <div className={panelClass}>{content}</div>;
-  }
-
   return (
-    <button type="button" onClick={onSelect} className={panelClass}>
+    <button
+      type="button"
+      disabled={expanded}
+      onClick={!expanded ? onSelect : undefined}
+      className={panelClass}
+    >
       {content}
     </button>
   );
@@ -149,8 +156,15 @@ export default function GamesFilterCarousel({
   onChange,
   onClear,
 }: GamesFilterCarouselProps) {
-  const [expanded, setExpanded] = useState<FilterType | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [expanded, setExpanded] = useState<{
+    type: FilterType;
+    index: number;
+  } | null>(null);
+
+  const trackRef = useRef<HTMLDivElement>(null);
+
+const offsetRef = useRef(0);
+
   const rafRef = useRef<number>(0);
 
   const update = useCallback(
@@ -171,63 +185,67 @@ export default function GamesFilterCarousel({
   );
 
   const expand = useCallback(
-    (type: FilterType) => {
-      if (expanded === type) return;
+    (type: FilterType, index: number) => {
+      if (expanded?.index === index) return;
+
       if (
         expanded &&
-        !hasFilterValue(expanded, filters) &&
-        enabled[expanded]
+        !hasFilterValue(expanded.type, filters) &&
+        enabled[expanded.type]
       ) {
-        onToggle(expanded);
+        onToggle(expanded.type);
       }
+
       if (!enabled[type]) {
         onToggle(type);
       }
-      setExpanded(type);
+
+      setExpanded({
+        type,
+        index,
+      });
     },
     [enabled, expanded, filters, onToggle],
   );
 
-  const handlePanelClick = (type: FilterType) => {
-    if (expanded === type) return;
-    if (expanded) {
-      expand(type);
-      return;
-    }
-    expand(type);
-  };
-
   useEffect(() => {
-    const el = scrollRef.current;
-    if (!el || expanded) return;
+
+    if (expanded) return;
+
+    const track = trackRef.current;
+
+    if (!track) return;
 
     let last = performance.now();
 
     const tick = (now: number) => {
-      const delta = (now - last) / 1000;
-      last = now;
 
-      if (el && !expanded) {
-        el.scrollLeft += SCROLL_SPEED * delta;
-        const loopWidth = el.scrollWidth / 2;
-        if (loopWidth > 0 && el.scrollLeft >= loopWidth) {
-          el.scrollLeft -= loopWidth;
+        const delta = (now - last) / 1000;
+
+        last = now;
+
+        offsetRef.current += SCROLL_SPEED * delta;
+
+        const sectionWidth = track.scrollWidth / 3;
+
+        if (offsetRef.current >= sectionWidth) {
+            offsetRef.current -= sectionWidth;
         }
-      }
 
-      rafRef.current = requestAnimationFrame(tick);
+        track.style.transform =
+            `translateX(${-offsetRef.current}px)`;
+
+        rafRef.current = requestAnimationFrame(tick);
+
     };
 
     rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [expanded]);
 
-  const scrollBy = (direction: "prev" | "next") => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const amount = direction === "next" ? COLLAPSED_WIDTH + 4 : -(COLLAPSED_WIDTH + 4);
-    el.scrollBy({ left: amount, behavior: "smooth" });
-  };
+    return () => cancelAnimationFrame(rafRef.current);
+
+}, [expanded]);
+
+  
 
   const renderFilterInput = (type: FilterType) => {
     switch (type) {
@@ -260,10 +278,7 @@ export default function GamesFilterCarousel({
         );
       case "search":
         return (
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="relative"
-          >
+          <form onSubmit={(e) => e.preventDefault()} className="relative">
             <div className="flex w-full overflow-hidden rounded-full border border-white/60 bg-gray-800 shadow-lg">
               <input
                 type="search"
@@ -301,80 +316,65 @@ export default function GamesFilterCarousel({
     }
   };
 
-  const marqueeItems = [...FILTER_TYPES, ...FILTER_TYPES];
-
+  const marqueeItems = [...FILTER_TYPES, ...FILTER_TYPES, ...FILTER_TYPES];
+  const items = expanded ? FILTER_TYPES : marqueeItems;
   return (
     <section className="relative">
-      <div className="relative w-full border-2 border-white/10 h-[280px] overflow-hidden rounded-xl sm:h-[300px] md:h-[360px] lg:h-[420px]">
-        {expanded ? (
-          <div className="flex h-full gap-1">
-            {FILTER_TYPES.map((type) => (
-              <FilterPanel
-                key={type}
-                type={type}
-                expanded={expanded === type}
-                dimmed={expanded !== null && expanded !== type}
-                hasValue={hasFilterValue(type, filters)}
-                onSelect={() => handlePanelClick(type)}
-              >
-                {expanded === type && (
-                  <>
-                    {renderFilterInput(type)}
-                    <div className="flex flex-wrap gap-3 pt-1">
-                      <button
-                        type="button"
-                        onClick={onClear}
-                        className="text-xs font-semibold text-stone-400 transition-colors hover:text-white"
-                      >
-                        Limpiar valores
-                      </button>
-                    </div>
-                  </>
-                )}
-              </FilterPanel>
-            ))}
-
-            <button
-              type="button"
-              onClick={() => collapse(expanded)}
-              aria-label="Cerrar filtro"
-              className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-lg text-white backdrop-blur-sm transition-colors hover:bg-black/70"
-            >
-              ×
-            </button>
-          </div>
-        ) : (
-          <>
-            <div
-              ref={scrollRef}
-              className="scrollbar-none flex h-full gap-1 overflow-x-auto"
-            >
+      <div className="relative w-full  h-[280px] overflow-hidden  sm:h-[300px] md:h-[360px] lg:h-[420px]">
+        <>
+          <div className="relative h-full overflow-hidden">
+            <div ref={trackRef} className="flex h-full will-change-transform">
               {marqueeItems.map((type, index) => (
                 <FilterPanel
                   key={`${type}-${index}`}
                   type={type}
-                  expanded={false}
-                  dimmed={false}
+                  expanded={expanded?.index === index}
+                  dimmed={expanded !== null && expanded.index !== index}
                   hasValue={hasFilterValue(type, filters)}
-                  onSelect={() => expand(type)}
-                />
+                  onSelect={() => expand(type, index)}
+                >
+                  {expanded?.index === index && (
+                    <>
+                      {renderFilterInput(type)}
+                      <div className="flex flex-wrap gap-3 pt-1">
+                        <button
+                          type="button"
+                          onClick={onClear}
+                          className="text-xs font-semibold text-stone-400 transition-colors hover:text-white"
+                        >
+                          Limpiar valores
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </FilterPanel>
               ))}
+              {expanded && (
+                <button
+                  type="button"
+                  onClick={() => collapse(expanded.type)}
+                  aria-label="Cerrar filtro"
+                  className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-lg text-white backdrop-blur-sm transition-colors hover:bg-black/70"
+                >
+                  ×
+                </button>
+              )}
             </div>
+          </div>
 
-            <CarouselNavButton
-              direction="prev"
-              onClick={() => scrollBy("prev")}
-              ariaLabel="Anterior"
-              className="left-1 opacity-80"
-            />
-            <CarouselNavButton
-              direction="next"
-              onClick={() => scrollBy("next")}
-              ariaLabel="Siguiente"
-              className="right-1 opacity-80"
-            />
-          </>
-        )}
+          <CarouselNavButton
+            direction="prev"
+            onClick={() => offsetRef.current -= 180}
+            ariaLabel="Anterior"
+            className="left-1 opacity-80"
+          />
+          <CarouselNavButton
+            direction="next"
+            onClick={() => offsetRef.current += 180}
+            ariaLabel="Siguiente"
+            className="right-1 opacity-80"
+          />
+        </>
       </div>
     </section>
   );

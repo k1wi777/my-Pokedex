@@ -13,7 +13,7 @@ export interface GameFilterAsset {
  */
 export const GAME_FILTER_ASSETS: Record<FilterType, GameFilterAsset> = {
   region: {
-    image: "/games/filters/region.jpg",
+    image: "/Pokeballs-tittle.png",
     title: "Región",
     subtitle: "Kanto, Johto, Hoenn y más",
   },

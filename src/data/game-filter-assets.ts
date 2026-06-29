@@ -13,22 +13,22 @@ export interface GameFilterAsset {
  */
 export const GAME_FILTER_ASSETS: Record<FilterType, GameFilterAsset> = {
   region: {
-    image: "/Pokeballs-tittle.png",
+    image: "/categories/regiones.png",
     title: "Región",
     subtitle: "Kanto, Johto, Hoenn y más",
   },
   platform: {
-    image: "/games/filters/platform.jpg",
+    image: "/categories/consolas2.webp",
     title: "Plataforma",
     subtitle: "Game Boy, DS, Switch…",
   },
   search: {
-    image: "/games/filters/search.jpg",
+    image: "/categories/busqueda2.webp",
     title: "Búsqueda",
     subtitle: "Encuentra un juego por nombre",
   },
   recent: {
-    image: "/games/filters/recent.jpg",
+    image: "/categories/recientes.webp",
     title: "Recientes",
     subtitle: "Lanzamientos de los últimos años",
   },

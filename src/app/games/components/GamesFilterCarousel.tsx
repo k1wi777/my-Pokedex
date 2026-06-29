@@ -4,6 +4,7 @@ import Image from "next/image";
 import {
   useCallback,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
   type ReactNode,
@@ -53,6 +54,7 @@ interface FilterPanelProps {
   dimmed: boolean;
   hasValue: boolean;
   onSelect: () => void;
+  onClose?: () => void;
   children?: ReactNode;
 }
 
@@ -62,40 +64,53 @@ function FilterPanel({
   dimmed,
   hasValue,
   onSelect,
+  onClose,
   children,
 }: FilterPanelProps) {
   const asset = GAME_FILTER_ASSETS[type];
   const [imageFailed, setImageFailed] = useState(false);
-
+  const panelRef = useRef<HTMLDivElement>(null);
+  const EXPANDED_WIDTH = "99vw";
+  const panelStyle = expanded ? { width: EXPANDED_WIDTH } : undefined;
   const panelClass = `
-    group/panel relative h-full overflow-hidden  text-left
+    group/panel relative h-full text-left
     transition-all duration-500 ease-out
     ${
       expanded
-        ? "w-[60%] shrink-0 cursor-default border-2 border-amber-300"
-        : "w-[100px] shrink-0 cursor-pointer hover:brightness-110 sm:w-[120px] md:w-[25%] lg:w-[25%]"
+        ? "shrink-0 cursor-default overflow-visible z-10"
+        : "w-[140px] shrink-0 cursor-pointer hover:brightness-110 sm:w-[170px] md:w-[25%] lg:w-[25%] overflow-hidden"
     }
     ${dimmed ? "opacity-55" : "opacity-100"}
   `;
 
   const content = (
     <>
-      <div className="absolute inset-0 bg-gradient-to-br from-stone-800 via-stone-900 to-black " />
+      <div className="absolute" />
       {!imageFailed && (
-        <Image
-          src={asset.image}
-          alt=""
-          fill
-          sizes={"60vw"}
-          className="object-cover transition-transform duration-700 group-hover/panel:scale-105 group-hover/panel:-translate-x-5"
-          onError={() => setImageFailed(true)}
-        />
+        <div className="relative h-full w-screen">
+          <Image
+            src={asset.image}
+            alt=""
+            fill
+            sizes="100vw"
+            className={`object-cover transition-transform duration-700 ${
+              !expanded ? "group-hover/panel:scale-105 group-hover/panel:-translate-x-5" : ""
+            }`}
+            onError={() => setImageFailed(true)}
+          />
+        </div>
       )}
+      {/* Closed State Gradient Overlay */}
       <div
-        className={`absolute inset-0 transition-colors duration-500 ${
-          expanded
-            ? "bg-gradient-to-r from-black/90 via-black/75 to-black/40"
-            : "bg-gradient-to-t from-black/90 via-black/35 to-black/10"
+        className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/10 transition-opacity duration-500 ${
+          expanded ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      />
+
+      {/* Expanded State Gradient Overlay: w-screen matches the image container so it is already full width and expands synchronously */}
+      <div
+        className={`absolute inset-y-0 left-0 w-screen bg-gradient-to-l from-black/95 via-black/70 to-transparent transition-opacity duration-500 ${
+          expanded ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       />
 
@@ -103,32 +118,35 @@ function FilterPanel({
         <span className="absolute right-2 top-2 h-2.5 w-2.5 rounded-full bg-orange-500 ring-2 ring-black/50" />
       )}
 
-      <div className="absolute inset-x-0 bottom-0 p-2.5 transition-all duration-500 sm:p-3">
-        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-orange-400/90">
-          Filtro
-        </p>
-        <p className="text-xs font-black uppercase tracking-wide text-white sm:text-sm">
+      {/* Closed State Text: Centered, higher up, and fades out instantly (150ms) in-place on expand */}
+      <div
+        className={`absolute bottom-16 left-0 right-0 px-4 text-center flex flex-col items-center justify-center pointer-events-none transition-opacity duration-150 ease-out ${
+          expanded ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <p className="text-sm xs:text-base sm:text-xl md:text-2xl lg:text-3xl font-black uppercase tracking-wider text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)] leading-tight max-w-full break-words select-none transition-transform duration-500 group-hover/panel:scale-110">
           {asset.title}
         </p>
-        {!expanded && (
-          <p className="mt-0.5 line-clamp-2 text-[10px] text-stone-300 sm:text-[11px]">
-            {asset.subtitle}
-          </p>
-        )}
       </div>
 
+      {/* Expanded State Content: Appears from below with delay for a clean reveal */}
       {expanded && children && (
-        <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
-          <div className="mb-14 max-w-md animate-[fadeUp_0.35s_ease-out] space-y-4">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-orange-400">
+        <div className="absolute inset-0 flex flex-col justify-center items-center sm:items-start sm:left-auto sm:right-0 sm:w-[48%] p-6 sm:p-12 md:p-16 z-10">
+          <div
+            style={{ animationDelay: "350ms", animationFillMode: "both" }}
+            className="w-full max-w-sm animate-[fadeUp_0.4s_ease-out] space-y-6 text-center sm:text-left"
+          >
+            <div className="space-y-1">
+              <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-orange-400">
                 {asset.title}
               </p>
-              <p className="mt-1 text-base font-bold text-white sm:text-lg">
+              <p className="text-2xl font-black uppercase tracking-wide text-white sm:text-3xl md:text-4xl drop-shadow-md">
                 {asset.subtitle}
               </p>
             </div>
-            {children}
+            <div className="w-full text-left">
+              {children}
+            </div>
           </div>
         </div>
       )}
@@ -136,14 +154,31 @@ function FilterPanel({
   );
 
   return (
-    <button
-      type="button"
-      disabled={expanded}
-      onClick={!expanded ? onSelect : undefined}
+    <div
+      ref={panelRef}
+      style={panelStyle}
+      role="button"
+      onClick={() => {
+        if (expanded) return;
+        onSelect();
+      }}
       className={panelClass}
     >
       {content}
-    </button>
+      {expanded && onClose && (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+          aria-label="Cerrar filtro"
+          className="absolute right-4 top-4 sm:right-6 sm:top-6 z-50 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-lg text-white backdrop-blur-sm transition-all hover:bg-black/80 hover:scale-105"
+        >
+          ×
+        </button>
+      )}
+    </div>
   );
 }
 
@@ -162,8 +197,9 @@ export default function GamesFilterCarousel({
   } | null>(null);
 
   const trackRef = useRef<HTMLDivElement>(null);
-
-const offsetRef = useRef(0);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const autoOffsetRef = useRef(0);
+  const [wrapperOffset, setWrapperOffset] = useState(0);
 
   const rafRef = useRef<number>(0);
 
@@ -179,6 +215,7 @@ const offsetRef = useRef(0);
       if (!hasFilterValue(type, filters) && enabled[type]) {
         onToggle(type);
       }
+      setWrapperOffset(0);
       setExpanded(null);
     },
     [enabled, filters, onToggle],
@@ -209,9 +246,6 @@ const offsetRef = useRef(0);
   );
 
   useEffect(() => {
-
-    if (expanded) return;
-
     const track = trackRef.current;
 
     if (!track) return;
@@ -219,33 +253,44 @@ const offsetRef = useRef(0);
     let last = performance.now();
 
     const tick = (now: number) => {
+      const delta = (now - last) / 1000;
 
-        const delta = (now - last) / 1000;
+      last = now;
 
-        last = now;
-
-        offsetRef.current += SCROLL_SPEED * delta;
+      if (!expanded) {
+        autoOffsetRef.current += SCROLL_SPEED * delta;
 
         const sectionWidth = track.scrollWidth / 3;
 
-        if (offsetRef.current >= sectionWidth) {
-            offsetRef.current -= sectionWidth;
+        if (autoOffsetRef.current >= sectionWidth) {
+          autoOffsetRef.current -= sectionWidth;
         }
+      }
 
-        track.style.transform =
-            `translateX(${-offsetRef.current}px)`;
+      track.style.transform = `translateX(${-autoOffsetRef.current}px)`;
 
-        rafRef.current = requestAnimationFrame(tick);
-
+      rafRef.current = requestAnimationFrame(tick);
     };
 
     rafRef.current = requestAnimationFrame(tick);
 
     return () => cancelAnimationFrame(rafRef.current);
+  }, [expanded]);
 
-}, [expanded]);
+  useLayoutEffect(() => {
+    if (!expanded) return;
 
-  
+    const track = trackRef.current;
+    if (!track) return;
+
+    const panel = track.children[expanded.index] as HTMLElement;
+
+    if (!panel) return;
+
+    const rect = panel.getBoundingClientRect();
+
+    setWrapperOffset((offset) => offset - rect.left);
+  }, [expanded]);
 
   const renderFilterInput = (type: FilterType) => {
     switch (type) {
@@ -255,6 +300,7 @@ const offsetRef = useRef(0);
             value={filters.region}
             onChange={(region) => update({ region })}
             placeholder="Todas las regiones"
+            position="up"
             options={[
               { value: "", label: "Todas las regiones" },
               ...regions.map((region) => ({ value: region, label: region })),
@@ -267,6 +313,7 @@ const offsetRef = useRef(0);
             value={filters.platform}
             onChange={(platform) => update({ platform })}
             placeholder="Todas las plataformas"
+            position="up"
             options={[
               { value: "", label: "Todas las plataformas" },
               ...platforms.map((platform) => ({
@@ -317,62 +364,64 @@ const offsetRef = useRef(0);
   };
 
   const marqueeItems = [...FILTER_TYPES, ...FILTER_TYPES, ...FILTER_TYPES];
-  const items = expanded ? FILTER_TYPES : marqueeItems;
+
   return (
     <section className="relative">
-      <div className="relative w-full  h-[280px] overflow-hidden  sm:h-[300px] md:h-[360px] lg:h-[420px]">
+      <div className="relative w-full h-[320px] sm:h-[340px] md:h-[400px] lg:h-[450px]">
         <>
           <div className="relative h-full overflow-hidden">
-            <div ref={trackRef} className="flex h-full will-change-transform">
-              {marqueeItems.map((type, index) => (
-                <FilterPanel
-                  key={`${type}-${index}`}
-                  type={type}
-                  expanded={expanded?.index === index}
-                  dimmed={expanded !== null && expanded.index !== index}
-                  hasValue={hasFilterValue(type, filters)}
-                  onSelect={() => expand(type, index)}
-                >
-                  {expanded?.index === index && (
-                    <>
-                      {renderFilterInput(type)}
-                      <div className="flex flex-wrap gap-3 pt-1">
-                        <button
-                          type="button"
-                          onClick={onClear}
-                          className="text-xs font-semibold text-stone-400 transition-colors hover:text-white"
-                        >
-                          Limpiar valores
-                        </button>
-                      </div>
-                    </>
-                  )}
-                </FilterPanel>
-              ))}
-              {expanded && (
-                <button
-                  type="button"
-                  onClick={() => collapse(expanded.type)}
-                  aria-label="Cerrar filtro"
-                  className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-lg text-white backdrop-blur-sm transition-colors hover:bg-black/70"
-                >
-                  ×
-                </button>
-              )}
+            <div
+              ref={wrapperRef}
+              className="h-full transition-transform duration-500 ease-out will-change-transform"
+              style={{
+                transform: `translateX(${wrapperOffset}px)`,
+              }}
+            >
+              <div
+                ref={trackRef}
+                className="flex h-full items-stretch will-change-transform"
+              >
+                {marqueeItems.map((type, index) => (
+                  <FilterPanel
+                    key={`${type}-${index}`}
+                    type={type}
+                    expanded={expanded?.index === index}
+                    dimmed={expanded !== null && expanded.index !== index}
+                    hasValue={hasFilterValue(type, filters)}
+                    onSelect={() => expand(type, index)}
+                    onClose={() => collapse(type)}
+                  >
+                    {expanded?.index === index && (
+                      <>
+                        {renderFilterInput(type)}
+                        <div className="flex flex-wrap gap-3 pt-1">
+                          <button
+                            type="button"
+                            onClick={onClear}
+                            className="text-xs font-semibold text-stone-400 transition-colors hover:text-white"
+                          >
+                            Limpiar valores
+                          </button>
+                        </div>
+                      </>
+                    )}
+                  </FilterPanel>
+                ))}
+              </div>
             </div>
           </div>
 
           <CarouselNavButton
             direction="prev"
-            onClick={() => offsetRef.current -= 180}
+            onClick={() => (autoOffsetRef.current -= 180)}
             ariaLabel="Anterior"
-            className="left-1 opacity-80"
+            className="hidden sm:block left-1 opacity-80"
           />
           <CarouselNavButton
             direction="next"
-            onClick={() => offsetRef.current += 180}
+            onClick={() => (autoOffsetRef.current += 180)}
             ariaLabel="Siguiente"
-            className="right-1 opacity-80"
+            className="hidden sm:block right-1 opacity-80"
           />
         </>
       </div>

@@ -13,6 +13,7 @@ interface SearchStyleDropdownProps {
   options: DropdownOption[];
   placeholder: string;
   id?: string;
+  position?: "up" | "down";
 }
 
 export default function SearchStyleDropdown({
@@ -21,6 +22,7 @@ export default function SearchStyleDropdown({
   options,
   placeholder,
   id,
+  position = "down",
 }: SearchStyleDropdownProps) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -75,13 +77,14 @@ export default function SearchStyleDropdown({
 
       {open && (
         <ul
-          className="
-            absolute top-[calc(100%+8px)] left-0 right-0 z-30
-            max-h-48 overflow-y-auto
-            rounded-xl border border-white/20 bg-gray-200/20
-            shadow-2xl backdrop-blur-xs
+          className={`
+            absolute left-0 right-0 z-30
+            ${position === "up" ? "bottom-[calc(100%+8px)]" : "top-[calc(100%+8px)]"}
+            max-h-32 sm:max-h-48 overflow-y-auto
+            rounded-xl border border-white/20 bg-zinc-900/95
+            shadow-2xl backdrop-blur-md
             moves-scroll
-          "
+          `}
         >
           {options.map((option) => (
             <li key={option.value || "__all__"}>
@@ -109,3 +112,4 @@ export default function SearchStyleDropdown({
     </div>
   );
 }
+

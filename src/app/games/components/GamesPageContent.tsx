@@ -80,8 +80,6 @@ export default function GamesPageContent({ games }: GamesPageContentProps) {
 
   return (
     <div className="space-y-8">
-      
-
       <GamesFilterCarousel
         enabled={enabledTypes}
         filters={filters}
@@ -91,36 +89,38 @@ export default function GamesPageContent({ games }: GamesPageContentProps) {
         onChange={setFilters}
         onClear={handleClearFilters}
       />
-
-      {filteredGames.length === 0 ? (
-        <p className="rounded-2xl border border-white/10 bg-white/5 py-12 text-center text-stone-400">
-          No se encontraron juegos con los filtros seleccionados.
-        </p>
-      ) : showFilteredGrid ? (
-        <section>
-          <p className="mb-4 text-sm text-stone-500">
-            {filteredGames.length} juego{filteredGames.length !== 1 ? "s" : ""}{" "}
-            encontrado{filteredGames.length !== 1 ? "s" : ""}
+      <div className="mx-auto max-w-7xl px-6">
+        {filteredGames.length === 0 ? (
+          <p className="rounded-2xl border border-white/10 bg-white/5 py-12 text-center text-stone-400">
+            No se encontraron juegos con los filtros seleccionados.
           </p>
-          <div className="grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
-            {filteredGames.map((game) => (
-              <GameCard key={game.id} game={game} />
+        ) : showFilteredGrid ? (
+          <section>
+            <p className="mb-4 text-sm text-stone-500">
+              {filteredGames.length} juego
+              {filteredGames.length !== 1 ? "s" : ""} encontrado
+              {filteredGames.length !== 1 ? "s" : ""}
+            </p>
+            <div className="grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 ">
+              {filteredGames.map((game) => (
+                <GameCard key={game.id} game={game} />
+              ))}
+            </div>
+          </section>
+        ) : (
+          <div className="space-y-12   sm:px-10 md:px-12 lg:px-14">
+            {generationsWithGames.map(({ generation, games: genGames }) => (
+              <GenerationSection
+                key={generation.id}
+                generationId={generation.id}
+                generationName={generation.name}
+                region={generation.mainRegion}
+                games={genGames}
+              />
             ))}
           </div>
-        </section>
-      ) : (
-        <div className="space-y-12 mx-auto max-w-7xl px-6  sm:px-10 md:px-12 lg:px-14">
-          {generationsWithGames.map(({ generation, games: genGames }) => (
-            <GenerationSection
-              key={generation.id}
-              generationId={generation.id}
-              generationName={generation.name}
-              region={generation.mainRegion}
-              games={genGames}
-            />
-          ))}
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function GameCollectionSection({ game }: GameCollectionSectionPro
   const hasCollection = game.collectionGames.length > 0;
 
   return (
-    <section className="border-t border-white/10 pt-10">
+    <section className="min-w-0 overflow-hidden border-t border-white/10 pt-10">
       <SectionHeading subtitle={game.collectionLabel}>
         Colección y relaciones
       </SectionHeading>
@@ -19,7 +19,8 @@ export default function GameCollectionSection({ game }: GameCollectionSectionPro
       {hasCollection && (
         <div className="mb-10">
           <SubSectionHeading>Misma colección</SubSectionHeading>
-          <div className="thin-scroll flex gap-4 overflow-x-auto pb-2">
+          <div className="min-w-0 max-w-full overflow-hidden">
+            <div className="thin-scroll flex w-full min-w-0 gap-4 overflow-x-auto pb-2">
             {game.collectionGames.map((related) => (
               <RelatedGameCard
                 key={related.id}
@@ -27,6 +28,7 @@ export default function GameCollectionSection({ game }: GameCollectionSectionPro
                 tag="Colección"
               />
             ))}
+            </div>
           </div>
         </div>
       )}
@@ -34,7 +36,8 @@ export default function GameCollectionSection({ game }: GameCollectionSectionPro
       {hasLinked && (
         <div>
           <SubSectionHeading>Relaciones</SubSectionHeading>
-          <div className="thin-scroll flex gap-4 overflow-x-auto pb-2">
+          <div className="min-w-0 max-w-full overflow-hidden">
+            <div className="thin-scroll flex w-full min-w-0 gap-4 overflow-x-auto pb-2">
             {game.linkedGames.map(({ game: related, tag }) => (
               <RelatedGameCard
                 key={`${related.id}-${tag}`}
@@ -42,6 +45,7 @@ export default function GameCollectionSection({ game }: GameCollectionSectionPro
                 tag={tag}
               />
             ))}
+            </div>
           </div>
         </div>
       )}

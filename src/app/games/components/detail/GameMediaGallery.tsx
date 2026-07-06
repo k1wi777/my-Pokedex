@@ -36,15 +36,15 @@ export default function GameMediaGallery({
   };
 
   return (
-    <section>
-      <div className="relative overflow-hidden rounded-xl bg-black/40">
-        <div className="relative aspect-video w-full">
+    <section className="min-w-0 max-w-full">
+      <div className="relative min-w-0 max-w-full overflow-hidden rounded-xl bg-black/40">
+        <div className="relative aspect-video min-w-0 w-full max-w-full overflow-hidden">
           {active.type === "youtube" && active.youtubeId ? (
             <iframe
               key={active.youtubeId}
               src={`https://www.youtube.com/embed/${active.youtubeId}`}
               title={active.label ?? `${gameName} tráiler`}
-              className="h-full w-full"
+              className="h-full w-full max-w-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
@@ -54,7 +54,7 @@ export default function GameMediaGallery({
               src={active.src}
               controls
               poster={active.preview}
-              className="h-full w-full object-cover"
+              className="h-full w-full max-w-full object-cover"
             />
           ) : (
             <Image
@@ -84,7 +84,8 @@ export default function GameMediaGallery({
       </div>
 
       {mediaItems.length > 1 && (
-        <div className="thin-scroll mt-3 flex gap-2 overflow-x-auto pb-2">
+        <div className="mt-3 min-w-0 max-w-full overflow-hidden">
+          <div className="thin-scroll flex w-full min-w-0 max-w-full gap-2 overflow-x-auto pb-2">
           {mediaItems.map((item, index) => {
             const thumb = getThumbnailSrc(item, fallbackCover);
             const isVideo = item.type === "video" || item.type === "youtube";
@@ -121,6 +122,7 @@ export default function GameMediaGallery({
               </button>
             );
           })}
+          </div>
         </div>
       )}
     </section>

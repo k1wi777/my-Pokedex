@@ -18,9 +18,9 @@ export default function GameDetailView({
   generationPokemon,
 }: GameDetailViewProps) {
   return (
-    <div className="mx-auto max-w-7xl px-6 py-10 sm:px-10 md:px-12 lg:px-14">
-      <div className="grid gap-10 lg:grid-cols-[1fr_260px] lg:gap-12">
-        <section className="min-w-0">
+    <div className="mx-auto max-w-7xl overflow-x-hidden px-6 py-10 sm:px-10 md:px-12 lg:px-14">
+      <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-12">
+        <section className="min-w-0 overflow-hidden">
           <SectionHeading>Galería</SectionHeading>
           <GameMediaGallery
             mediaItems={game.mediaItems}
@@ -28,9 +28,11 @@ export default function GameDetailView({
           />
         </section>
 
-        <GameDetailSidebar game={game} />
+        <div className="min-w-0 lg:row-span-1">
+          <GameDetailSidebar game={game} />
+        </div>
 
-        <div className="space-y-12 lg:col-span-2">
+        <div className="min-w-0 space-y-12 overflow-hidden lg:col-span-2">
           <GameAboutSection game={game} />
           <GameMetricsSection game={game} />
           <GameCollectionSection game={game} />

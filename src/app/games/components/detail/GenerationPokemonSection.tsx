@@ -28,7 +28,7 @@ export default function GenerationPokemonSection({
 
   if (pokemon.length === 0) {
     return (
-      <section className="border-t border-white/10 pt-10">
+      <section className="min-w-0 overflow-hidden border-t border-white/10 pt-10">
         <div className="mb-5 border-b border-white/10 pb-3">
           <h2 className="text-lg font-bold tracking-tight text-white sm:text-xl">
             Pokémon de esta Generación
@@ -43,7 +43,7 @@ export default function GenerationPokemonSection({
   }
 
   return (
-    <section className="border-t border-white/10 pt-10">
+    <section className="min-w-0 overflow-hidden border-t border-white/10 pt-10">
       <div className="mb-5 flex flex-col gap-4 border-b border-white/10 pb-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h2 className="text-lg font-bold tracking-tight text-white sm:text-xl">
@@ -52,7 +52,7 @@ export default function GenerationPokemonSection({
           <p className="mt-1 text-sm text-stone-400">{generationName}</p>
         </div>
 
-        <div className="relative w-full sm:w-64">
+        <div className="relative min-w-0 w-full sm:w-64">
           <input
             type="search"
             value={search}
@@ -78,10 +78,12 @@ export default function GenerationPokemonSection({
       </div>
 
       {filtered.length > 0 ? (
-        <div className="thin-scroll flex gap-3 overflow-x-auto pb-2">
-          {filtered.map((item) => (
-            <GenerationPokemonCard key={item.id} pokemon={item} />
-          ))}
+        <div className="min-w-0 max-w-full overflow-hidden">
+          <div className="thin-scroll flex w-full min-w-0 gap-3 overflow-x-auto pb-2">
+            {filtered.map((item) => (
+              <GenerationPokemonCard key={item.id} pokemon={item} />
+            ))}
+          </div>
         </div>
       ) : (
         <p className="text-sm text-stone-500">

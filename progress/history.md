@@ -14,3 +14,12 @@
 - **Verificación:** V1 ✅, V2 ✅, `init.sh` ✅. V3 reservado al usuario.
 - **Estado final:** done
 
+## 2026-07-05 — responsive-game-detail-gallery
+
+- **Agente:** Implementer + Reviewer
+- **Trabajo:** Corrección de desbordamiento horizontal del contenedor multimedia en GameMediaGallery para viewports pequeños.
+- **Archivos modificados:** `src/app/games/components/detail/GameMediaGallery.tsx`
+- **Cambios:** Agregado `max-w-full` al contenedor externo e interno del media activo, y `w-full max-w-full` al contenedor de thumbnails. Se inspeccionó GenerationPokemonSection, GameDetailBanner y resto de componentes sin encontrar desbordamiento adicional.
+- **Verificación:** V1 ✅, V2 ✅, `init.sh` ✅.
+- **Estado final:** done
+

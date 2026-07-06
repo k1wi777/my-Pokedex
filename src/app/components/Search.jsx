@@ -43,7 +43,7 @@ export default function Search({
   }
   
   return (
-    <form onSubmit={handleSubmit} className={`relative z-[100] ${small ? "" : ""}`}>
+    <form onSubmit={handleSubmit} className={`relative  ${small ? "" : ""}`}>
       <div
         className="
             w-full 

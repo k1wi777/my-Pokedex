@@ -17,6 +17,18 @@
 /.next/
 /out/
 
+
+.cursor/
+# my harness
+.agents/
+agents/
+docs/
+specs/
+AGENTS.md
+init.sh
+skills-lock.json
+
+
 # production
 /build
 

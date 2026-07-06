@@ -1,5 +1,7 @@
 export const RAWG_CACHE_REVALIDATE = 60 * 60 * 24 * 7; // 7 days
 
+export const POKEAPI_CACHE_REVALIDATE = 60 * 60 * 24 * 7; // 7 days
+
 export const DEFAULT_ESRB_RATING = "Rating Pending";
 
 export const RECENT_YEARS_THRESHOLD = 5;

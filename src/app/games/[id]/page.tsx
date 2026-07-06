@@ -10,6 +10,7 @@ import {
   formatGameDisplayName,
   generateGameStaticParams,
 } from "@/lib/pokemon-games/enrich-games";
+import { fetchGenerationPokemonList } from "@/lib/pokemon-games/generation-pokemon";
 import {
   fetchRawgGame,
   fetchRawgScreenshots,
@@ -43,9 +44,10 @@ export default async function GameDetailPage({ params }: GameDetailPageProps) {
 
   const { game: localGame, generation } = found;
 
-  const [rawgGame, screenshots] = await Promise.all([
+  const [rawgGame, screenshots, generationPokemon] = await Promise.all([
     fetchRawgGame(localGame.rawgId),
     fetchRawgScreenshots(localGame.rawgId),
+    fetchGenerationPokemonList(generation.id),
   ]);
 
   const allEnriched = enrichGames(new Map());
@@ -66,7 +68,7 @@ export default async function GameDetailPage({ params }: GameDetailPageProps) {
         platforms={game.platforms}
         officialSite={game.officialSite}
       />
-      <GameDetailView game={game} />
+      <GameDetailView game={game} generationPokemon={generationPokemon} />
     </>
   );
 }

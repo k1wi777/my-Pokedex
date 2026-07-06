@@ -90,6 +90,21 @@ export default function GameDetailLoading() {
                   ))}
                 </div>
               </section>
+
+              <section className="border-t border-white/10 pt-10">
+                <div className="mb-5 flex flex-col gap-4 border-b border-white/10 pb-3 sm:flex-row sm:items-end sm:justify-between">
+                  <SkeletonBar className="h-6 w-64" />
+                  <SkeletonBar className="h-10 w-full rounded-xl sm:w-64" />
+                </div>
+                <div className="flex gap-3 overflow-hidden">
+                  {Array.from({ length: 6 }).map((_, index) => (
+                    <SkeletonBar
+                      key={index}
+                      className="h-44 w-[145px] shrink-0 rounded-xl"
+                    />
+                  ))}
+                </div>
+              </section>
             </div>
           </div>
         </div>

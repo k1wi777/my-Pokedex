@@ -9,8 +9,8 @@ export interface PokemonGameLocal {
   id: string;
   rawgId: number;
   rawgCollection: string;
-  cover: string;
   frontCover?: string;
+  cover: string;
   trailerUrl?: string;
   relations?: GameRelation[];
   /** @deprecated Usar `relations` */

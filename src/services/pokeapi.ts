@@ -3,6 +3,12 @@ import type {
   PokeApiGenerationResponse,
   PokeApiPokemonResponse,
 } from "@/types/pokeapi-generation";
+import type {
+  PokeApiPokedexResponse,
+  PokeApiTypeResponse,
+  PokeApiVersionGroupResponse,
+  PokeApiVersionResponse,
+} from "@/types/pokeapi";
 
 const POKEAPI_BASE_URL = "https://pokeapi.co/api/v2";
 
@@ -37,4 +43,36 @@ export async function fetchPokemonByName(
   name: string,
 ): Promise<PokeApiPokemonResponse | null> {
   return fetchFromPokeApi<PokeApiPokemonResponse>(`/pokemon/${name}`);
+}
+
+export async function fetchTypePokemon(
+  typeName: string,
+): Promise<PokeApiTypeResponse | null> {
+  return fetchFromPokeApi<PokeApiTypeResponse>(`/type/${typeName}`);
+}
+
+export async function fetchVersion(
+  versionId: number,
+): Promise<PokeApiVersionResponse | null> {
+  return fetchFromPokeApi<PokeApiVersionResponse>(`/version/${versionId}`);
+}
+
+export async function fetchVersionGroup(
+  groupIdOrUrl: number | string,
+): Promise<PokeApiVersionGroupResponse | null> {
+  const path =
+    typeof groupIdOrUrl === "number"
+      ? `/version-group/${groupIdOrUrl}`
+      : groupIdOrUrl.replace(POKEAPI_BASE_URL, "");
+  return fetchFromPokeApi<PokeApiVersionGroupResponse>(path);
+}
+
+export async function fetchPokedex(
+  pokedexIdOrUrl: number | string,
+): Promise<PokeApiPokedexResponse | null> {
+  const path =
+    typeof pokedexIdOrUrl === "number"
+      ? `/pokedex/${pokedexIdOrUrl}`
+      : pokedexIdOrUrl.replace(POKEAPI_BASE_URL, "");
+  return fetchFromPokeApi<PokeApiPokedexResponse>(path);
 }

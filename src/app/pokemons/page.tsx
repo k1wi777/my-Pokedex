@@ -2,7 +2,7 @@ import {  fetchInitialDetailed, fetchPokemons } from "@/services/fetches";
 
 import Search from '@/app/components/Search.jsx'
 import "./global.css";
-import PokemonGrid from "@/app/components/PokemonGrid"
+import PokedexFiltersBar from "@/app/pokemons/components/PokedexFiltersBar";
 
 export default async function PokemonPage() {
   const { count, next, previous, results } = await fetchPokemons();
@@ -65,7 +65,7 @@ export default async function PokemonPage() {
 
       </div>
 
-      <PokemonGrid
+      <PokedexFiltersBar
         initialResults={initialDetailed}
         initialNext={next}
       />

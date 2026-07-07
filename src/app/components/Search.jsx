@@ -1,7 +1,8 @@
 "use client";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
-import {  POKEMON_SUGGESTIONS } from "@/utils/pokemonNames";
+import { POKEMON_SUGGESTIONS } from "@/utils/pokemonNames";
 
 export default function Search({
   small = false,
@@ -37,24 +38,18 @@ export default function Search({
 
   function handleSubmit(e) {
     e.preventDefault();
-    const value = inputRef.current.value;
+    const value = inputRef.current?.value?.trim();
+    if (!value) return;
     const valueParsed = value.replaceAll(" ", "-");
     router.push(`/pokemons/${valueParsed}`);
   }
   
   return (
-    <form onSubmit={handleSubmit} className={`relative  ${small ? "" : ""}`}>
-      <div
-        className="
-            w-full 
-            border-1 border-white/60
-            flex
-            rounded-full
-            overflow-hidden
-            bg-gray-800
-            shadow-lg
-          "
-      >
+    <form
+      onSubmit={handleSubmit}
+      className={`relative w-full `}
+    >
+      <div className="flex w-full items-stretch overflow-hidden rounded-full border border-white/15 bg-[linear-gradient(90deg,rgba(255,255,255,0.08),rgba(255,255,255,0.05),rgba(255,255,255,0.08))] shadow-[0_10px_30px_rgba(0,0,0,0.24)] backdrop-blur-md">
         <input
           ref={inputRef}
           type="text"
@@ -63,46 +58,37 @@ export default function Search({
           onFocus={handleInputChange}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
           placeholder={placeholder}
-          className="
-              bg-white/40
-              py-2 px-3
-              text-black
-              text-sm
-              font-bold
-              w-full
-              outline-none
-            "
+          className={`min-w-0 flex-1 bg-transparent text-sm font-semibold text-white outline-none placeholder:text-stone-400 ${
+            small ? "px-3 py-2.5 sm:px-4 sm:py-3" : "px-4 py-3 sm:px-5 sm:py-3.5"
+          }`}
         />
 
         <button
           type="submit"
-          className="
-              bg-[rgba(127,5,220,0.2)]
-              border-r-2 border-y-2 border-[rgba(127,5,220,0.7)]
-              rounded-r-3xl
-              hover:bg-[rgba(127,5,220,0.7)]
-              transition
-              px-6
-              font-black
-              tracking-wide
-              text-white
-            "
+          aria-label="Buscar Pokémon"
+          className={`group inline-flex items-center justify-center border-l border-white/10 bg-[linear-gradient(180deg,rgba(120,43,220,0.95),rgba(75,24,150,0.95))] text-white transition-all hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-orange-400/40 ${
+            small ? "min-w-14 px-3 sm:min-w-16 sm:px-4" : "min-w-15 px-4 sm:min-w-19 sm:px-5"
+          }`}
         >
-          <img
+          <Image
             src="/icons/search.svg"
-            alt="icon search"
-            className="w-8 md:w-12 drop-shadow-[0_0_10px_rgba(0,255,255,0.35)]"
+            alt=""
+            width={small ? 20 : 24}
+            height={small ? 20 : 24}
+            className={`drop-shadow-[0_0_10px_rgba(255,255,255,0.25)] transition-transform group-hover:scale-105 ${
+              small ? "h-4 w-4 sm:h-5 sm:w-5" : "h-5 w-5 sm:h-6 sm:w-6"
+            }`}
           />
         </button>
       </div>
 
       {showSuggestions && filteredSuggestions.length > 0 && (
-        <ul className="absolute top-[calc(100%+8px)] left-0 right-0 z-999 max-h-48 w-66 overflow-y-auto bg-gray-200/20 backdrop-blur-xs border border-white/20 rounded-xl shadow-2xl custom-scrollbar moves-scroll">
+        <ul className="moves-scroll absolute left-0 right-0 top-[calc(100%+0.75rem)] z-80 max-h-56 overflow-y-auto rounded-2xl border border-white/15 bg-[#1a1a1a]/20 p-2 shadow-2xl backdrop-blur-sm">
           {filteredSuggestions.map((pokemon) => (
             <li
               key={pokemon}
               onClick={() => handleSuggestionClick(pokemon)}
-              className="px-4 py-2 text-white/80 hover:bg-white/20 hover:text-white cursor-pointer text-sm font-semibold transition-colors  "
+              className="cursor-pointer rounded-xl px-4 py-2.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/10 hover:text-white"
             >
               {pokemon.replaceAll("-", " ")}
             </li>

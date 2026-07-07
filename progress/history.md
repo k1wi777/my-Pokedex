@@ -23,3 +23,12 @@
 - **Verificación:** V1 ✅, V2 ✅, `init.sh` ✅.
 - **Estado final:** done
 
+## 2026-07-06 — pokedex-filters
+
+- **Agente:** Implementer + Reviewer
+- **Trabajo:** Sistema de filtros de categoría (Tipo, Generación, Juego) en `/pokemons` con pills colapsables, resolución async vía PokeAPI, combinación por intersección entre categorías y paginación client-side del conjunto filtrado.
+- **Archivos creados:** `src/types/pokeapi.ts`, `src/lib/pokedex/filter-state.ts`, `src/lib/pokedex/game-pokedex.ts`, `src/lib/pokedex/resolve-filtered-pokemon.ts`, `src/app/pokemons/components/FilterPill.tsx`, `src/app/pokemons/components/TypeFilterPanel.tsx`, `src/app/pokemons/components/GenerationFilterPanel.tsx`, `src/app/pokemons/components/GameFilterPanel.tsx`, `src/app/pokemons/components/PokedexFiltersBar.tsx`, 18 SVGs en `public/types/`.
+- **Archivos modificados:** `src/services/pokeapi.ts`, `src/app/pokemons/page.tsx`, `src/app/components/PokemonGrid.jsx`.
+- **Verificación:** V1 (WI) ✅, V2 ✅, init.sh ⚠️ (lint global preexistente).
+- **Estado final:** done
+
